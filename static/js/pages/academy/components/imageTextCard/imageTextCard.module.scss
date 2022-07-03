@@ -1,0 +1,72 @@
+@import '~shared/styles/config';
+
+.card {
+    @include viewport(desktop) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .imgWrapper {
+        padding-top: 30px;
+        // grid-column: 1/3;
+        @include viewport(desktop) {
+            grid-column: 1/3;
+        }
+    }
+
+    .content {
+        margin-top: -5px;
+        @include viewport(desktop) {
+            grid-column: 2/4;
+            margin-top: -100px;
+        }
+        background: $www-academy-secondary;
+        padding: 20px 30px;
+        clip-path: polygon(
+            0 0,
+            45px 0,
+            49px 5px,
+            104px 5px,
+            108px 0,
+            113% 0,
+            100% 120%,
+            0 100%
+        );
+
+        p {
+            margin-top: 8px;
+        }
+
+        ul {
+            list-style: square;
+            margin: 20px 0;
+            padding: 0 0px 0 20px;
+
+            li {
+                margin-top: 3px;
+                font-weight: $font-regular;
+                font-size: 18px;
+                color: #c0c0c0;
+
+                strong {
+                    font-weight: $font-semibold;
+                    color: #fff;
+                }
+
+                a {
+                    color: #fff;
+                    border-bottom: 1px solid #ba1f7e9e;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        color: $www-academy;
+                    }
+                }
+            }
+
+            li::marker {
+                color: $www-academy;
+            }
+        }
+    }
+}

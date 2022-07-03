@@ -1,0 +1,53 @@
+@import '~shared/styles/config';
+
+.section {
+    position: relative;
+    transition: all 2s cubic-bezier(0.43, 1, 0.62, 1);
+    // transform: translateY(-10px);
+    opacity: 1;
+    animation: showMe 1s;
+}
+
+// @mixin test($number) {
+//     top: 5px;
+// }
+
+.sectionLoading {
+    // display: flex;
+    position: relative;
+    text-align: center;
+    min-height: 50vh;
+    width: 100%;
+
+    .spinner {
+        padding-top: 15vh;
+    }
+}
+
+.sectionLoadingSmall {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    min-height: 200px;
+
+    .spinner {
+        padding-top: 80px;
+    }
+}
+
+// @mixin mini() {
+//     min-height: 50px;
+// }
+
+@keyframes showMe {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

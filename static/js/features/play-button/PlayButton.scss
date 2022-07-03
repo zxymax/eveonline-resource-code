@@ -1,0 +1,11 @@
+.playButton {
+  .bg {
+      transition: all 0.2s ease-in-out;
+  }
+
+  &:hover {
+      .bg {
+          fill-opacity: 1;
+      }
+  }
+}

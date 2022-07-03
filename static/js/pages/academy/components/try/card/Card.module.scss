@@ -1,0 +1,143 @@
+@import '~shared/styles/config';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    // (card) Hover class
+    &.filled.hover {
+        background: $www-academy-secondary;
+    }
+
+    // (card) Filled class
+    .content {
+        padding: 20px;
+        background: $www-academy-secondary;
+        transition: transform 0.3s;
+        position: relative;
+        height: 100%;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 20px;
+            border-bottom: 5px solid $www-academy-secondary;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            height: 0;
+            width: 83px;
+        }
+
+        p {
+            text-transform: uppercase;
+            color: $www-academy;
+            margin: 0;
+            font-weight: $font-medium;
+        }
+
+        .deco {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+
+            li {
+                margin-top: 3px;
+                margin-left: -5px;
+                font-weight: $font-medium;
+                font-size: 16px;
+                color: #c0c0c0;
+                background-color: #0a0c17;
+                border-radius: 12px;
+                margin-bottom: 5px;
+                padding-left: 10px;
+            }
+        }
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 18px;
+            margin: 0;
+
+            @include viewport(desktop) {
+                font-size: 22px;
+            }
+
+            span {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .imgWrapper {
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 56.25%; // Keep aspect ratio of images
+
+        .plan {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            font-weight: $font-semibold;
+            text-transform: uppercase;
+            font-size: 12px;
+
+            @include viewport(tablet) {
+                font-size: 15px;
+            }
+
+            color: #c0c0c0;
+            background-color: $www-academy-secondary;
+            padding: 2px 10px;
+            z-index: 2;
+            border-radius: 28px 0 0 28px;
+        }
+
+        .careerIcon {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            height: 24px;
+            width: 24px;
+            background-color: #29353a;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &::after {
+            content: '';
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover; // TODO: Keep in mind that this stretches img's that are smaller
+            position: absolute;
+            height: 100%;
+            background: $www-academy-secondary;
+        }
+    }
+
+    .title {
+        margin: 10px 0 0;
+        transition: 0.3s ease;
+    }
+}

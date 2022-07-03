@@ -1,0 +1,115 @@
+@import '~shared/styles/config';
+
+.showcase {
+    :global {
+        .slick-track {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .slick-slide {
+            > div {
+                height: 100%;
+            }
+
+            &.slick-active {
+                z-index: 1;
+            }
+        }
+
+        .slick-dots {
+            margin-left: 15px;
+
+            @include viewport(mobile) {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .slider1 {
+        width: auto;
+        max-width: 550px;
+    }
+
+    .topWrapper {
+        background-color: #111528;
+        padding: 30px 0 20px;
+        position: relative;
+
+        // arrow
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 36px;
+            height: 20px;
+            background: $www-academy-secondary;
+            transform: translateX(-50%) rotate(180deg);
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+        }
+
+        .top {
+            display: grid;
+
+            .left {
+                display: flex;
+                flex-direction: column;
+
+                .content {
+                    flex-grow: 1;
+                }
+
+                .arrowContainer {
+                    display: flex;
+                    vertical-align: bottom;
+
+                    .arrows {
+                        display: block;
+                    }
+                }
+            }
+
+            .right {
+                // background-color: blue;
+                // border: 1px solid yellow;
+            }
+        }
+
+    }
+
+    .bottom {
+        background-color: $www-academy;
+        padding: 20px 0;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    /**********************************
+        @Media queries
+    **********************************/
+    @include viewport(mobile) {
+        .bottom {
+            padding: 0;
+        }
+    }
+
+    @include viewport(tablet) {
+        .topWrapper {
+            .top {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 40px;
+            }
+        }
+    }
+
+    @include viewport(desktop) {
+        .topWrapper {
+            .top {
+                grid-gap: 80px;
+            }
+        }
+    }
+}

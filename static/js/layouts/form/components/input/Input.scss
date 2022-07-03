@@ -1,0 +1,13 @@
+@import '../../Form.scss';
+
+.input,
+.input:focus {
+    width: 100%;
+    display: block;
+
+    @include form-defaults();
+
+    @include viewport(tablet) {
+        width: unset;
+    }
+}

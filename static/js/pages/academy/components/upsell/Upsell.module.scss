@@ -1,0 +1,93 @@
+@import '~shared/styles/config';
+
+.upsell {
+    margin: 20px 0;
+    padding-top: 20px;
+
+    @include viewport(mobile) {
+        padding-top: 200px;
+    }
+
+    &.left {
+        background-position: 50% 0;
+
+        @include viewport(mobile) {
+            // background-position: calc(30% + 250px) -20px;
+        }
+
+        @include viewport(tablet) {
+            background-position: calc(50% + 200px) -20px;
+            min-height: 700px;
+        }
+
+        @include viewport(tablet) {
+            background-position: calc(50% + 230px) -20px;
+        }
+
+        .inner {
+            .card {
+                grid-column: 1/2;
+            }
+        }
+    }
+
+    @include viewport(tablet) {
+        padding-top: 10px;
+    }
+
+    .inner {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include viewport(tablet) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .card {
+            grid-column: 2/2;
+            background: $www-academy-secondary;
+            padding: 30px 40px;
+            margin-top: 20px;
+
+            @include viewport(mobile) {
+                margin-top: 100px;
+            }
+
+            clip-path: polygon(
+                0 0,
+                45px 0,
+                49px 5px,
+                104px 5px,
+                108px 0,
+                113% 0,
+                100% 120%,
+                0 100%
+            );
+
+            p {
+                h3 {
+                    color: $www-academy;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    background-position: 50% 0;
+
+    @include viewport(tablet) {
+        background-position: calc(30% - 410px) -20px;
+        min-height: 700px;
+    }
+
+    @include viewport(tablet) {
+        background-position: calc(50% - 410px) -20px;
+    }
+
+    @include viewport(desktop) {
+        background-position: calc(50% - 410px) -20px;
+    }
+
+    background-repeat: no-repeat;
+    background-size: contain;
+}

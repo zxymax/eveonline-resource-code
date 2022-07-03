@@ -1,0 +1,66 @@
+@import '~shared/styles/config';
+
+.alert {
+    font-size: 18px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    grid-gap: 15px;
+    align-items: center;
+    font-weight: $font-regular;
+
+    .icon svg {
+        vertical-align: -7px;
+    }
+
+    &.success {
+        background: rgba($alert-success, 0.1);
+        border: 1px solid $alert-success;
+        color: $alert-success;
+
+        .icon svg {
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    &.warning {
+        background: rgba($alert-warning, 0.1);
+        border: 1px solid $alert-warning;
+        color: $alert-warning;
+
+        .icon svg {
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    &.error {
+        background: rgba($alert-error, 0.1);
+        border: 1px solid $alert-error;
+        color: $alert-error;
+
+        .icon svg {
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    &.info {
+        background: rgba($www-night-black, 0.5);
+        border: 1px solid rgba(#fff, 0.1);
+        color: #fff;
+
+        .icon svg {
+            width: 52px;
+            height: 52px;
+            color: $www-omega;
+        }
+    }
+
+    @include viewport(xs) {
+        padding: 25px;
+        grid-gap: 25px;
+    }
+}
+

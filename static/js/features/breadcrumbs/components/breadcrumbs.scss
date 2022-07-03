@@ -1,0 +1,35 @@
+@import '~shared/styles/config';
+
+.breadcrumbs {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: block;
+
+    li {
+        float: left;
+        list-style: none;
+        position: relative;
+        padding-right: 10px;
+
+        &::after {
+            content: '/';
+            position: absolute;
+            right: 5px;
+        }
+
+        &:last-child {
+            &::after {
+                content: '';
+            }
+
+            color: red;
+        }
+
+        a {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+    }
+}

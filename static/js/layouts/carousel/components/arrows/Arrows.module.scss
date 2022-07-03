@@ -1,0 +1,14 @@
+.arrows {
+    display: flex;
+    justify-content: flex-end;
+    user-select: none;
+
+    svg {
+        cursor: pointer;
+
+        &:nth-child(1) {
+            margin-right: 10px;
+        }
+    }
+}
+

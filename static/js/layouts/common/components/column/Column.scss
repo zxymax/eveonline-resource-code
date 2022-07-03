@@ -1,0 +1,250 @@
+@import '~shared/styles/config';
+
+.col-1 {
+    @include col(1);
+}
+
+.col-2 {
+    @include col(2);
+}
+
+.col-3 {
+    @include col(3);
+}
+
+.col-4 {
+    @include col(4);
+}
+
+.col-5 {
+    @include col(5);
+}
+
+.col-6 {
+    @include col(6);
+}
+
+.col-7 {
+    @include col(7);
+}
+
+.col-8 {
+    @include col(8);
+}
+
+.col-9 {
+    @include col(9);
+}
+
+.col-10 {
+    @include col(10);
+}
+
+.col-11 {
+    @include col(11);
+}
+
+.col-12 {
+    @include col(12);
+}
+
+@include viewport (xs) {
+    .col-xs-1 {
+        @include col(1);
+    }
+
+    .col-xs-2 {
+        @include col(2);
+    }
+
+    .col-xs-3 {
+        @include col(3);
+    }
+
+    .col-xs-4 {
+        @include col(4);
+    }
+
+    .col-xs-5 {
+        @include col(5);
+    }
+
+    .col-xs-6 {
+        @include col(6);
+    }
+
+    .col-xs-7 {
+        @include col(7);
+    }
+
+    .col-xs-8 {
+        @include col(8);
+    }
+
+    .col-xs-9 {
+        @include col(9);
+    }
+
+    .col-xs-10 {
+        @include col(10);
+    }
+
+    .col-xs-11 {
+        @include col(11);
+    }
+
+    .col-xs-12 {
+        @include col(12);
+    }
+}
+
+@include viewport (mobile) {
+    .col-sm-1 {
+        @include col(1);
+    }
+
+    .col-sm-2 {
+        @include col(2);
+    }
+
+    .col-sm-3 {
+        @include col(3);
+    }
+
+    .col-sm-4 {
+        @include col(4);
+    }
+
+    .col-sm-5 {
+        @include col(5);
+    }
+
+    .col-sm-6 {
+        @include col(6);
+    }
+
+    .col-sm-7 {
+        @include col(7);
+    }
+
+    .col-sm-8 {
+        @include col(8);
+    }
+
+    .col-sm-9 {
+        @include col(9);
+    }
+
+    .col-sm-10 {
+        @include col(10);
+    }
+
+    .col-sm-11 {
+        @include col(11);
+    }
+
+    .col-sm-12 {
+        @include col(12);
+    }
+}
+
+@include viewport (tablet) {
+    .col-md-1 {
+        @include col(1);
+    }
+
+    .col-md-2 {
+        @include col(2);
+    }
+
+    .col-md-3 {
+        @include col(3);
+    }
+
+    .col-md-4 {
+        @include col(4);
+    }
+
+    .col-md-5 {
+        @include col(5);
+    }
+
+    .col-md-6 {
+        @include col(6);
+    }
+
+    .col-md-7 {
+        @include col(7);
+    }
+
+    .col-md-8 {
+        @include col(8);
+    }
+
+    .col-md-9 {
+        @include col(9);
+    }
+
+    .col-md-10 {
+        @include col(10);
+    }
+
+    .col-md-11 {
+        @include col(11);
+    }
+
+    .col-md-12 {
+        @include col(12);
+    }
+}
+
+@include viewport (desktop) {
+    .col-lg-1 {
+        @include col(1);
+    }
+
+    .col-lg-2 {
+        @include col(2);
+    }
+
+    .col-lg-3 {
+        @include col(3);
+    }
+
+    .col-lg-4 {
+        @include col(4);
+    }
+
+    .col-lg-5 {
+        @include col(5);
+    }
+
+    .col-lg-6 {
+        @include col(6);
+    }
+
+    .col-lg-7 {
+        @include col(7);
+    }
+
+    .col-lg-8 {
+        @include col(8);
+    }
+
+    .col-lg-9 {
+        @include col(9);
+    }
+
+    .col-lg-10 {
+        @include col(10);
+    }
+
+    .col-lg-11 {
+        @include col(11);
+    }
+
+    .col-lg-12 {
+        @include col(12);
+    }
+}
+

@@ -1,0 +1,227 @@
+@import '~shared/styles/config';
+
+$color-bg: #fff;
+$color-text: $www-night-black;
+$color-icon: #ffc038;
+
+.sale {
+    --sale-border-color: #30b2e6;
+    --sale-text-color: #fad74d;
+    --sale-ribbon-color: #d81f27;
+
+    display: none;
+    position: relative;
+    margin-right: 20px;
+
+    .link {
+        background: $color-bg;
+        color: $color-text;
+        display: flex;
+        align-items: center;
+        padding: 6px 8px 3px;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: $font-semibold;
+        transition: 0.2s ease-in-out;
+        transition-property: color, background, filter;
+
+        img {
+            width: 18px;
+            margin-right: 6px;
+        }
+
+        &:hover {
+            filter: brightness(1.07);
+        }
+    }
+
+    .icon {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        animation: icon 1.5s linear infinite;
+        animation-delay: 1s;
+        opacity: 0;
+
+        path {
+            fill: $color-icon;
+        }
+
+        &:nth-child(2) {
+            right: 40px;
+            top: -10px;
+            animation-delay: 1.3s;
+        }
+
+        &:nth-child(3) {
+            right: 5px;
+            top: -10px;
+            animation-delay: 1.8s;
+        }
+    }
+
+    /************************************
+        Theme styles - START
+    ************************************/
+
+    // Generic styles from Contentful - START
+    &.Yellow .link {
+        background: $www-omega;
+    }
+
+    &.Red .link {
+        background: $www-blood-red;
+        color: #fff;
+    }
+    // Generic styles from Contentful - END
+
+    // Special styles - START
+    &.black_friday {
+        .link {
+            color: #fad74d;
+            background: $www-night-black;
+        }
+    }
+
+    &.cyber_monday {
+        .link {
+            color: #ff8fd9;
+            background: $www-night-black;
+        }
+    }
+
+    &.hang_tag {
+        margin-right: 45px;
+        transform: rotate(-3deg);
+
+        .link {
+            color: var(--sale-text-color);
+            background: transparent;
+            border: 3px solid var(--sale-border-color);
+            border-right: 0;
+            box-shadow: -7px 0 20px -7px var(--sale-border-color);
+
+            &:hover {
+                filter: unset;
+            }
+        }
+
+        svg,
+        path {
+            fill: var(--sale-border-color);
+        }
+
+        svg {
+            position: absolute;
+            right: 0;
+            transform: translateX(39px);
+        }
+
+        span {
+            animation: glitch 1.8s 2s 3 linear;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateY(68%) rotate(3deg);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0;
+            background: var(--sale-ribbon-color);
+            color: #fff;
+            white-space: nowrap;
+            padding: 0 2px;
+        }
+
+        &.black_friday span {
+            text-shadow: 0 0 8px #fad74d;
+        }
+
+        &.cyber_monday span {
+            text-shadow: 0 0 8px #ff8fd9;
+        }
+    }
+
+    &.red {
+        @extend .black_friday;
+
+        .overlay {
+            background: #d81f27;
+        }
+    }
+
+    &.st-patricks {
+        .link {
+            border-color: #9cc954;
+            box-shadow: -7px 0 20px -7px #9cc954;
+        }
+
+        svg,
+        path {
+            fill: #9cc954;
+        }
+
+        .overlay {
+            background: #d81f27;
+        }
+    }
+    
+    &.easter {
+        .link {
+            color: #ff8fd9;
+            border-color: #fce447;
+            box-shadow: -7px 0 20px -7px #fce447;
+        }
+
+        svg,
+        path {
+            fill: #fce447;
+        }
+
+        .overlay {
+            background: #d81f27;
+        }
+    }
+
+
+    // Special styles - END
+
+    /************************************
+        Theme styles - END
+    ************************************/
+}
+
+@include viewport(tablet) {
+    .sale {
+        display: block;
+    }
+}
+
+@keyframes icon {
+    0% {
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+
+    99% {
+        transform: translateY(-150%);
+        opacity: 0;
+    }
+}
+
+@keyframes glitch {
+    2%,
+    64% {
+        transform: skew(0deg);
+    }
+    4%,
+    60% {
+        transform: skew(2deg);
+    }
+    62% {
+        transform: skew(50deg);
+    }
+}

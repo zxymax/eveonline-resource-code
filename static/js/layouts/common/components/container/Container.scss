@@ -1,0 +1,23 @@
+@import '~shared/styles/config';
+
+.container {
+    @include container();
+
+    .full {
+        max-width: none;
+
+        @include viewport(tablet) {
+            max-width: none;
+        }
+
+        @include viewport(desktop) {
+            max-width: none;
+        }
+    }
+}
+
+.wide {
+    max-width: 1920px;
+    padding: 0;
+}
+

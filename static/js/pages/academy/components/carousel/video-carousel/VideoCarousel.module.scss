@@ -1,0 +1,100 @@
+@import '~shared/styles/config';
+
+.intro {
+    margin-bottom: 8px;
+}
+
+.content {
+    width: 100%;
+
+    // global for all sliders
+    :global {
+        .slick-track {
+            display: flex;
+            flex-grow: 1;
+        }
+    }
+
+    // slider 1 - videos
+    .slider1 {
+        .video {
+            position: relative;
+        }
+
+        svg[role='button'],
+        svg[data-name='video'] {
+            opacity: 0;
+            transition: 0.25s ease-in-out;
+        }
+
+        svg[role='button'] path:first-child {
+            fill: $www-academy;
+        }
+
+        svg[data-name='video'] {
+            position: absolute;
+            top: 50px;
+            right: 30px;
+            pointer-events: none;
+        }
+
+        :global {
+            .slick-slide {
+                margin-right: 15px;
+            }
+
+            .slick-slide.slick-current {
+                svg[role='button'],
+                svg[data-name='video'] {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    // slider 2 - text
+    .slider2 {
+        :global {
+            .slick-slide.slick-active {
+                z-index: 1;
+            }
+        }
+    }
+
+    .text {
+        h3 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .type {
+            text-transform: uppercase;
+            color: $www-academy;
+            font-weight: $font-medium;
+            font-size: 1.125rem;
+            letter-spacing: 0.02em;
+        }
+    }
+
+    .arrows {
+        margin-right: 15px;
+    }
+
+    @include viewport(mobile) {
+        padding: 0 20% 0 0;
+
+        .slider1 {
+            :global .slick-slide {
+                margin-right: 30px;
+            }
+        }
+
+        .text {
+            max-width: 700px;
+        }
+
+        .arrows {
+            margin-right: 30px;
+        }
+    }
+}

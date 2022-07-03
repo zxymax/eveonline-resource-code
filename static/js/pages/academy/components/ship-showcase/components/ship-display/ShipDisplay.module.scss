@@ -1,0 +1,94 @@
+@import '~shared/styles/config';
+
+.shipDisplay {
+    color: black;
+    display: grid;
+    align-items: center;
+    height: 100%;
+
+    .imageContainer {
+        justify-self: center;
+        align-self: center;
+    }
+
+    .contentContainer {
+        align-self: center;
+
+        h2 {
+            color: white;
+            font-size: 48px;
+            font-weight: var(--font-weight-bold);
+            line-height: 60px;
+        }
+
+
+        .className {
+            h3 {
+                display: inline;
+                color: $www-academy-secondary;
+                text-transform: uppercase;
+                font-size: 26px;
+            }
+
+            .icon {
+                display: inline-block;
+                padding-right: 15px;
+                vertical-align: middle;
+
+                svg {
+                    margin-bottom: 3px;
+                }
+            }
+        }
+
+        table {
+            margin-top: 10px;
+
+            th {
+                color: #c0c0c0;
+                text-transform: uppercase;
+                font-size: 15px;
+                font-weight: var(--font-weight-semibold);
+                padding-right: 22px;
+            }
+
+            td {
+                color: black;
+                font-size: 15px;
+                font-weight: var(--font-weight-semibold);
+            }
+        }
+    }
+
+    /**********************************
+        @Media queries
+    **********************************/
+    @include viewport(mobile) {
+        grid-template-columns: 2fr 1fr;
+        height: 400px;
+
+        .contentContainer {
+            text-align: right;
+            transition: opacity 0.2s ease-out, transform 0.25s ease;
+            transform: translate3d(0, 0, 0);
+
+            &.changing {
+                opacity: 0;
+                transform: translate3d(15px, 0, 0);
+            }
+
+            .table {
+                float: right;
+
+                th {
+                    padding-right: 0;
+                    padding-left: 22px;
+                }
+            }
+        }
+    }
+
+    @include viewport(desktop) {
+        grid-template-columns: 3fr 1fr;
+    }
+}

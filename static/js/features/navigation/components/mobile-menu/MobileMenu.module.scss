@@ -1,0 +1,140 @@
+@import '~shared/styles/config';
+
+.menu {
+    visibility: hidden;
+    display: none;
+    flex-direction: column;
+    background-color: #13151a;
+    flex: 1 1 auto;
+    height: 0;
+    z-index: 25;
+
+    &.open {
+        .search {
+            opacity: 1;
+            transition: opacity ease-in-out 0.5s;
+        }
+
+        .navigation {
+            opacity: 1;
+            transition: opacity ease-in-out 0.5s;
+            // flex: 1 1 100%;
+            height: initial;
+        }
+
+        .footer {
+            opacity: 1;
+            transition: opacity ease-in-out 0.3s 0.4s;
+            flex: 0 0 72px;
+            height: initial;
+        }
+    }
+
+    &.closed {
+        pointer-events: none;
+
+        .search {
+            opacity: 0;
+            transition: opacity ease-in-out 0.5s;
+        }
+
+        .navigation {
+            opacity: 0;
+            transition: opacity ease-in-out 0.5s;
+            height: 0;
+            flex: 1 1 auto;
+        }
+
+        .footer {
+            opacity: 0;
+            transition: opacity ease-in-out 0s;
+            height: 0;
+            flex: 1 1 auto;
+        }
+    }
+
+    .search {
+        padding: 10px 50px 0;
+    }
+
+    .navigation {
+        @include font-medium();
+        opacity: 0;
+        text-transform: uppercase;
+        font-size: 25px;
+        letter-spacing: 0.15em;
+        display: flex;
+        flex-direction: column;
+        padding: 55px 50px 20px;
+
+        a:first-of-type {
+            margin-top: 0;
+        }
+
+        a {
+            margin-top: 32px;
+        }
+    }
+
+    .footer {
+        opacity: 0;
+        margin: 0 50px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(#878787, 0.3);
+
+        .social {
+            flex: 0 0 72px;
+            align-self: center;
+            padding: 20px 0;
+            // width: 83.75%; // 402/480
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #13151a;
+
+            .socialIcons {
+                // To make it work in IE
+                justify-content: space-between;
+                justify-content: space-evenly;
+
+                // To make it work in Edge
+                // This is because of a bug in Edge
+                // Edge thinks it supports space-evenly, but it doesn't
+                // See: https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15947692/
+                @supports (-ms-ime-align: auto) {
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: $max-1280) {
+        visibility: visible;
+        display: flex;
+
+        .navigation {
+            overflow-y: scroll;
+            overflow: auto;
+        }
+    }
+
+    @media only screen and (max-width: $max-768) {
+        .search {
+            padding: 10px 20px 0;
+        }
+
+        .navigation {
+            padding: 30px 20px 20px;
+            // overflow-y: scroll;
+            // overflow: hidden;
+
+            a {
+                margin-top: 20px;
+            }
+        }
+
+        .footer {
+            margin: 0 20px;
+        }
+    }
+}

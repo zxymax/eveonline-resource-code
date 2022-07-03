@@ -1,0 +1,113 @@
+@import '~shared/styles/config';
+
+.content {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    margin-top: 50px;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+
+    picture,
+    .video {
+        position: relative;
+        z-index: -1;
+
+        img,
+        video {
+            width: 100%;
+        }
+    }
+
+    .inner {
+        display: flex;
+        z-index: 2;
+        flex-direction: column;
+        justify-content: center;
+
+        h3 {
+            margin: 15px 0;
+            padding: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+/****************************
+    @media queries
+***************************/
+@include viewport(tablet) {
+    .content {
+        margin-top: 100px;
+        grid-template: auto / 5fr 4fr;
+
+        .inner {
+            // margin: auto 0 auto 0;
+            justify-content: center;
+        }
+
+        &.fadeLeft {
+            picture,
+            .video {
+                @include gradient-transition(right, right, 25%, 100%);
+
+                // margin-left: -50px;
+            }
+
+            .inner {
+                margin-left: -50px;
+            }
+        }
+
+        &.fadeRight {
+            grid-template: auto / 4fr 5fr;
+            margin-right: -50px;
+
+            picture,
+            .video {
+                @include gradient-transition(left, left, 25%, 100%);
+
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .inner {
+                // text-align: right;
+                margin-right: -50px;
+
+                @include viewport(tablet) {
+                    margin-right: -50px;
+                }
+
+                grid-column: 1;
+                grid-row: 1;
+            }
+        }
+
+        // Need to trigger gradient-transition mixin on parent hover
+        &:hover picture::after,
+        &:hover .video::after {
+            opacity: 1;
+        }
+    }
+}
+
+@include viewport(desktop) {
+    .content {
+        margin-top: 180px;
+    }
+
+    .heading {
+        font-size: 52px;
+
+        &::before {
+            width: 6px;
+            height: 37px;
+            margin-right: 30px;
+        }
+    }
+}

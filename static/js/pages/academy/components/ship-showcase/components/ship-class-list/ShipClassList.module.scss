@@ -1,0 +1,81 @@
+@import '~shared/styles/config';
+
+.shipClassList {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    .item {
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: $transition;
+        display: flex;
+
+        > span {
+            transition: $transition;
+        }
+
+        .text {
+            p {
+                text-transform: uppercase;
+                font-size: 15px;
+                font-weight: var(--font-weight-bold);
+                margin: 0;
+            }
+        }
+
+        &:hover,
+        &.current {
+            color: $www-academy;
+
+            > span {
+                background: $www-academy;
+            }
+        }
+    }
+
+    .head,
+    .content {
+        display: none;
+    }
+
+    .head {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .heading {
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: var(--font-weight-bold);
+    }
+
+    /**********************************
+        @Media queries
+    **********************************/
+    @include viewport(mobile) {
+        .head,
+        .content {
+            display: grid;
+        }
+
+        .head {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .content {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    @include viewport(tablet) {
+        .item {
+            align-items: center;
+        }
+    }
+
+}
+

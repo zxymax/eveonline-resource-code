@@ -1,0 +1,45 @@
+@import '~shared/styles/config';
+
+.contentCards {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include viewport(mobile) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    column-gap: 30px;
+
+    h3 {
+        margin-bottom: 5px;
+    }
+
+    .paragraph {
+        padding: 5px 0;
+        letter-spacing: -0.01em;
+        font-weight: $font-regular;
+        font-size: 18px;
+
+        @include viewport(mobile) {
+            font-size: 22px;
+        }
+    }
+
+    a {
+        @include arrow-hover;
+
+        img {
+            transition: all 0.3s;
+        }
+
+        &:hover {
+            img {
+                filter: brightness(1.2);
+            }
+        }
+    }
+
+    p {
+        margin-top: 5px;
+    }
+}

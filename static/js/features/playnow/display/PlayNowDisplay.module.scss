@@ -1,0 +1,187 @@
+@import '~shared/styles/config';
+
+.modalContainer {
+    text-align: center;
+    margin-top: 40px;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    a {
+        margin-top: 20px;
+    }
+}
+
+.loadingWrapper {
+    margin: 70px 0;
+
+    .loading {
+        animation: FadeInRight 0.5s;
+    }
+}
+
+.buttonWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    @include viewport(mobile) {
+        max-width: 50%;
+    }
+
+    > span {
+        font-size: 22px;
+    }
+
+    a:first-child {
+        margin-bottom: 20px;
+    }
+}
+
+.loadingText {
+    // border: 1px solid red;
+    // transition: all 0.5s;
+
+    .in {
+        opacity: 1;
+        // border: 1px solid green;
+        transition: all 0.5s;
+    }
+
+    .out {
+        opacity: 0;
+        transition: all 0.5s;
+    }
+}
+
+.countDown {
+    span {
+        font-size: 36px;
+        color: #fab400;
+    }
+}
+
+.playNow {
+    text-align: center;
+
+    h3 {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            font-size: 48px;
+            margin-right: 20px;
+            color: $brand-success;
+            // margin-bottom: -4px;
+            width: 36px;
+
+            @include viewport(mobileMax) {
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+        }
+
+        .failed,
+        .success {
+            width: 36px;
+        }
+
+        .failed {
+            color: $alert-warning;
+        }
+    }
+
+    .tryEveButton {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        padding: 15px 30px;
+        width: 100%;
+        font-size: 22px;
+        height: 100px;
+        text-transform: uppercase;
+        min-width: 245px;
+        letter-spacing: 0.1em;
+        display: inline-grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        line-height: 0;
+        font-weight: 600;
+        clip-path: polygon(
+            0% 0,
+            0 0%,
+            100% 0%,
+            100% 0,
+            100% calc(100% - 10px),
+            calc(100% - 10px) 100%,
+            0 100%,
+            0% calc(100% - 10px)
+        );
+        background-color: #30b2e6;
+        background: linear-gradient(180deg, #30b2e6 0%, #2b9ecc 100%), #30b2e6;
+        color: #fff;
+        border: 0;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            background: linear-gradient(180deg, #33bdf5 0%, #2b9ecc 100%),
+                #31b1e5;
+        }
+
+        b {
+            display: block;
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        &.checkConnection {
+            padding-left: 60px;
+            background: linear-gradient(180deg, #5fcaf5 0%, #5eb6da 100%),
+                #5baccc;
+        }
+
+        .loading {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+        }
+    }
+
+    .info {
+        padding: 5px;
+        margin-bottom: 30px;
+
+        p {
+            font-size: 16px;
+            margin: 0;
+            padding: 0 38px;
+        }
+    }
+
+    .downloadButton {
+        margin-top: 38px;
+    }
+}
+
+@keyframes FadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

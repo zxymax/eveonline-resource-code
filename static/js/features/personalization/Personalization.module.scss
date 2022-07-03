@@ -1,0 +1,88 @@
+@import '~shared/styles/config';
+
+.personal {
+    display: none; // Comment out to show locally, this is used with Optimize
+    position: fixed;
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow-y: scroll;
+    padding: 20px;
+
+    .container {
+        background: $www-night-black;
+        position: relative;
+        width: 100%;
+        max-width: 992px;
+        margin: 100px auto 0;
+        padding: 40px;
+    }
+
+    p {
+        max-width: 600px;
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+        flex-direction: column;
+
+        .link {
+            @include reset-button;
+
+            color: $www-primary;
+            @include font-semibold();
+            text-transform: uppercase;
+            margin: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .close {
+        @include reset-button;
+
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0.7;
+        transition: 0.2s ease-in-out;
+        font-size: 32px;
+        color: #fff;
+        cursor: pointer;
+        transform: rotate(90deg);
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+/*********************************
+    @media queries
+*********************************/
+@include viewport(mobile) {
+    .personal {
+        .container {
+            padding: 60px 80px;
+        }
+
+        .links {
+            flex-direction: row;
+        }
+
+        .close {
+            top: 20px;
+            right: 20px;
+        }
+    }
+}
+
+@include viewport(tablet) {
+    .personal {
+        .container {
+            margin-top: 200px;
+        }
+    }
+}

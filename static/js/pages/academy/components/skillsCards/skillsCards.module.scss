@@ -1,0 +1,100 @@
+@import '~shared/styles/config';
+
+.skillsCards {
+    padding: 0;
+
+    .intro {
+        @include viewport(tablet) {
+            max-width: 75%;
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include viewport(mobile) {
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 30px;
+        }
+
+        @include viewport(tablet) {
+            margin-top: 60px;
+        }
+
+        column-gap: 30px;
+        row-gap: 30px;
+
+        .card {
+            background: $www-academy-secondary;
+            padding: 10px;
+
+            @include viewport(mobile) {
+                padding: 30px;
+            }
+
+            clip-path: polygon(
+                0 0,
+                45px 0,
+                49px 5px,
+                104px 5px,
+                108px 0,
+                113% 0,
+                100% 120%,
+                0 100%
+            );
+
+            h2 {
+                text-transform: uppercase;
+                font-size: 18px;
+                font-weight: $font-medium;
+                margin: 0;
+
+                @include viewport(desktop) {
+                    font-size: 22px;
+                }
+
+                span {
+                    margin-left: 10px;
+                }
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            ul {
+                list-style: square;
+                margin: 20px 0;
+                padding: 0 0px 0 20px;
+
+                li {
+                    margin-top: 3px;
+                    font-weight: $font-regular;
+                    font-size: 18px;
+                    color: #c0c0c0;
+
+                    strong {
+                        font-weight: $font-semibold;
+                        color: #fff;
+                    }
+
+                    a {
+                        color: white;
+                        border-bottom: 1px solid #ba1f7e9e;
+                        font-weight: 500;
+                        transition: all 0.3s;
+                        &:hover {
+                            color: $www-academy;
+                            filter: brightness(1.2);
+                        }
+                    }
+                }
+
+                li::marker {
+                    color: $www-academy;
+                }
+            }
+        }
+    }
+}

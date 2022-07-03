@@ -1,0 +1,187 @@
+@import '~shared/styles/config';
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(#000, 0.8);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+
+    &.dark {
+        background: rgba(7, 20, 31, 0.8);
+    }
+
+    .modal {
+        @include fit;
+
+        position: relative;
+        height: auto;
+        max-height: 80vh;
+        width: 90%;
+        max-width: 768px;
+        margin: 40px auto;
+        background: #fff;
+        color: #404040;
+
+        &.dark {
+            max-width: 630px;
+            min-height: 300px;
+            padding: 20px;
+            background: #212121;
+            color: #fff;
+            clip-path: polygon(
+                0 0,
+                45px 0,
+                49px 5px,
+                104px 5px,
+                108px 0,
+                100% 0,
+                100% 100%,
+                108px 100%,
+                104px calc(100% - 5px),
+                49px calc(100% - 5px),
+                45px 100%,
+                0 100%
+            );
+
+            p {
+                font-size: 22px;
+            }
+        }
+
+        &.darkSmall {
+            max-width: 500px;
+            min-height: 380px;
+            padding: 70px 40px;
+            background: #101010;
+            color: #fff;
+            clip-path: polygon(
+                0 0,
+                45px 0,
+                49px 5px,
+                104px 5px,
+                108px 0,
+                100% 0,
+                100% 100%,
+                108px 100%,
+                104px calc(100% - 5px),
+                49px calc(100% - 5px),
+                45px 100%,
+                0 100%
+            );
+
+            p {
+                font-size: 22px;
+            }
+        }
+
+        padding: 20px;
+        overflow: auto;
+        outline: none;
+        transition: 0.3s ease-out;
+        transform: translateY(-10px) perspective(600px) rotateX(5deg);
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        strong {
+            @include font-semibold();
+        }
+    }
+
+    .close {
+        @include reset-button;
+
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0.7;
+        transition: 0.2s ease-in-out;
+        font-size: 28px;
+        cursor: pointer;
+        transform: rotate(90deg);
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &.dark {
+            right: 25px;
+            top: 5px;
+        }
+
+        .light {
+            color: #fab400;
+        }
+    }
+}
+
+/*********************************
+    @media queries
+*********************************/
+@include viewport(tablet) {
+    .overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .modal {
+            position: relative;
+            max-width: 768px;
+            padding: 40px;
+        }
+
+        .close {
+            font-size: 36px;
+            top: 20px;
+            right: 20px;
+        }
+    }
+}
+
+// Modal Transitions
+// stylelint-disable-next-line
+:global {
+    .ReactModal__Overlay {
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+
+        .ReactModal__Content {
+            // border: 1px solid red;
+
+            .modal {
+                // border: 1px solid red;
+                transition: 0.3s ease-out;
+                transform: translateY(-10px) perspective(600px) rotateX(5deg);
+            }
+        }
+    }
+
+    .ReactModal__Overlay--after-open {
+        opacity: 1;
+
+        .ReactModal__Content {
+            transform: translateY(0) perspective(500px) rotateX(0);
+        }
+    }
+
+    .ReactModal__Overlay--before-close {
+        opacity: 0;
+
+        .ReactModal__Content {
+            transform: translateY(-10px) perspective(600px) rotateX(5deg);
+        }
+    }
+}

@@ -1,0 +1,99 @@
+@import '~shared/styles/config';
+
+.article {
+    padding-top: 80px;
+
+    @include viewport(mobile) {
+        padding-top: 80px;
+    }
+
+    .withSideContent {
+        padding-bottom: 40px;
+    }
+
+    /**********************************
+        @Media queries
+    **********************************/
+    @include viewport(tablet) {
+        padding-top: 160px;
+
+        .withSideContent {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-gap: 120px;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.articleManySections {
+    padding-top: 80px;
+
+    @include viewport(mobile) {
+        padding-top: 160px;
+    }
+
+    .containerWrapper {
+        padding: 0 15px;
+
+        @include viewport(tablet) {
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns:
+                minmax(140px, 1fr) minmax(min-content, 1290px)
+                1fr;
+        }
+    }
+
+    .sectionContainer {
+        margin: 110px 0;
+
+        .sectionWrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 30px;
+
+            @media screen and (min-width: 580px) and (max-width: $max-1024) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media screen and (min-width: $max-1024) {
+                grid-template-columns: 8fr 4fr;
+            }
+        }
+
+        &:nth-child(even) {
+            .sectionWrapper {
+                grid-template-columns: 1fr;
+
+                @media screen and (min-width: 580px) and (max-width: $max-1024) {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                @media screen and (min-width: $max-1024) {
+                    grid-template-columns: 4fr 8fr;
+                }
+            }
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+    }
+
+    .intro {
+        .content {
+            border-top: 1px solid $www-academy;
+            padding-top: 30px;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+
+            @include viewport(tablet) {
+                grid-template-columns: 8fr 4fr;
+            }
+
+            gap: 30px;
+        }
+    }
+}

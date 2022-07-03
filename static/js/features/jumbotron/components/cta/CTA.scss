@@ -1,0 +1,150 @@
+@import '~shared/styles/config';
+
+.cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include viewport(desktop) {
+        justify-content: flex-end;
+    }
+
+    // div {
+    //     display: flex;
+    //     flex-direction: column;
+    // }
+
+    .no_sub,
+    .omega {
+        font-size: 14px;
+        margin-top: 15px;
+        letter-spacing: 0.075em;
+        display: block;
+    }
+
+    .no_sub {
+        color: #9d9b9b;
+    }
+
+    .omega {
+        color: #fff;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .second_button {
+        margin-left: 20px;
+    }
+
+    .free {
+        margin-right: 10px;
+    }
+
+    .windows,
+    .apple {
+        font-size: 20px;
+    }
+
+    .windows {
+        padding-left: 20px;
+    }
+
+    .apple {
+        padding-left: 18px;
+    }
+}
+
+.cta {
+    &.alignLeft {
+        display: -ms-flexbox;
+        -ms-flex-pack: left;
+        justify-content: initial;
+
+        .no_sub,
+        .omega {
+            text-align: center;
+        }
+
+        @include viewport(mdMax) {
+            justify-content: center;
+        }
+
+        @include viewport(mobileMax) {
+            .free,
+            .upgrade {
+                // padding: 0;
+            }
+        }
+    }
+}
+
+@include viewport(tablet) {
+    .cta {
+        min-height: 150px;
+    }
+}
+
+@include viewport(mobileMax) {
+    .cta {
+        .windows,
+        .apple {
+            display: none;
+        }
+
+        .free,
+        .upgrade {
+            font-size: 14px;
+            // padding: 0 20px;
+        }
+
+        .no_sub,
+        .omega {
+            text-align: center;
+        }
+    }
+}
+
+@include viewport(xsMax) {
+    .cta {
+        flex-direction: column;
+        width: 100%;
+
+        .windows,
+        .apple {
+            display: none;
+        }
+
+        .free,
+        .upgrade {
+            // height: 50px;
+            margin: 10px 0;
+            letter-spacing: 0.05em;
+
+            span {
+                justify-content: center;
+            }
+        }
+
+        .free {
+            margin-bottom: 5px;
+        }
+
+        // .upgrade {
+        //     margin-top: 20px;
+        //     margin-bottom: 20px;
+        // }
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .cta {
+        flex-direction: column;
+
+        .second_button {
+            margin-left: 0;
+        }
+    }
+}

@@ -1,0 +1,117 @@
+@import '~shared/styles/config';
+
+.explore {
+    position: relative;
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    z-index: 20;
+
+    &.isplaying {
+        z-index: 1000;
+    }
+
+    .row {
+        position: relative;
+        z-index: 1;
+
+        .right {
+            width: 50%;
+
+            @include col(calc(100% / 2));
+
+            align-self: center;
+
+            .wrapper {
+                overflow: hidden;
+                position: relative;
+
+                .image {
+                    width: 100%;
+                    cursor: pointer;
+                    position: relative;
+                    transition: 0.2s ease-in-out;
+                }
+
+                .icon {
+                    @include centerer;
+
+                    transition: 0.2s ease-in-out;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1;
+        opacity: 0.7;
+        transition: 0.2s ease-in-out;
+        font-size: 36px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .player {
+        @include fit;
+    }
+}
+
+@include viewport (tablet) {
+    .explore {
+        padding-top: 160px;
+        padding-bottom: 80px;
+
+        .row {
+            justify-content: flex-end;
+
+            .right {
+                @include col(calc(106% / 2));
+
+                .wrapper {
+                    &:hover {
+                        .image {
+                            filter: brightness(1.2);
+                        }
+
+                        .icon {
+                            transform: translate(-50%, -50%) scale(1.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .container {
+        padding: 0;
+        max-width: 100%;
+    }
+}
+
+@include viewport (mobileMax) {
+    .explore {
+        padding-top: 60px;
+
+        .row {
+            .right {
+                width: 100%;
+                margin-top: 20px;
+
+                @include col(calc(100% / 1));
+
+                .wrapper {
+                    .icon {
+                        width: 25%;
+                    }
+                }
+            }
+        }
+    }
+}

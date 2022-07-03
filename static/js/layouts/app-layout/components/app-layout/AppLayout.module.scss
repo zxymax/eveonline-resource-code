@@ -1,0 +1,17 @@
+@import '~shared/styles/config';
+@import '../../../../shared/styles/default';
+
+.layout {
+    display: block;
+
+    &.japan {
+        font-family: $font-family-ja;
+
+        // --font-family: 'Noto Sans JP', sans-serif;
+        --font-weight-light: 300;
+        --font-weight-regular: 300;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 500;
+    }
+}
+

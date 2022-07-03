@@ -1,0 +1,68 @@
+@import '~shared/styles/config';
+
+.pilot {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    margin-top: 30px;
+
+    @include bg-img;
+
+    .gradient {
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            left: 0;
+            bottom: -380px;
+            width: auto;
+            max-width: initial;
+            min-width: 100%;
+        }
+    }
+
+    .row {
+        position: relative;
+        margin-bottom: 100px;
+
+        span {
+            @include font-semibold();
+        }
+
+        p {
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: flex;
+
+            a {
+                height: 40px;
+                padding: 0 15px;
+                letter-spacing: 0.05em;
+                border: 1px solid #fff;
+            }
+        }
+    }
+}
+
+@include viewport (tablet) {
+    .pilot {
+        padding-top: 300px;
+        padding-bottom: 80px;
+
+        .row {
+            margin-bottom: 300px;
+        }
+    }
+}
+
+@include viewport (mobileMax) {
+    .pilot {
+        margin-top: 0;
+    }
+}
+
+

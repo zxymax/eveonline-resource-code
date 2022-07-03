@@ -1,0 +1,72 @@
+@import '~shared/styles/config';
+// @import '~shared/styles/carousel';
+
+.adsWrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    min-height: 221px;
+    max-width: 300px;
+
+    &.large {
+        max-width: 250px;
+        margin: 0 auto;
+
+        @include viewport(mobile) {
+            max-width: 280px;
+        }
+
+        @include viewport(tablet) {
+            max-width: 300px;
+        }
+
+        @include viewport(desktop) {
+            max-width: 410px;
+        }
+    }
+
+    img {
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            filter: brightness(1.2);
+        }
+    }
+    /* stylelint-disable-next-line */
+    :global {
+        .slick-track {
+            display: flex;
+
+            @include viewport(xlargeDesktopUp) {
+                min-height: 460px;
+            }
+        }
+
+        .slick-slide {
+            visibility: hidden;
+        }
+
+        .slick-slide.slick-active {
+            visibility: visible;
+        }
+
+        .slick-arrow {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 24px;
+            z-index: 3;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s;
+
+            &:hover {
+                cursor: pointer;
+                color: #fff;
+            }
+
+            &.slick-prev {
+                right: 50px;
+            }
+        }
+    }
+}

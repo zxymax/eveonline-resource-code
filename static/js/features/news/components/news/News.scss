@@ -1,0 +1,85 @@
+@import '~shared/styles/config';
+
+.news {
+    position: relative;
+    color: #fff;
+    padding-top: 120px;
+
+    h2 {
+        @include font-light();
+
+        span {
+            @include font-semibold();
+        }
+    }
+
+    .newsitems {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .newsitem {
+            // width: 32%;
+            overflow: hidden;
+
+            .image {
+                position: relative;
+                transition: 0.2s ease-in-out;
+
+                &:hover {
+                    filter: brightness(1.2);
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .text {
+                letter-spacing: 0.05em;
+
+                .info {
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    @include font-medium();
+
+                    span {
+                        color: #979797;
+                    }
+                }
+
+                .description {
+                    font-size: 18px;
+                    width: 100%;
+                    max-width: 90%;
+                    margin: 0;
+                    transition: 0.2s ease-in-out;
+                    @include font-regular();
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include viewport (mobileMax) {
+    .news {
+        padding-top: 40px;
+
+        .newsitems {
+            .newsitem {
+                width: 100%;
+                margin-top: 30px;
+
+                &:nth-child(1) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,181 @@
+@import '~shared/styles/config';
+
+.box {
+    background-color: transparent;
+    position: relative;
+}
+
+.border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($www-space-gray, $default-alpha);
+
+    // box-border(size, topCut, topFill, bottomCut, bottomFill, corner)
+
+    &.corner { @include box-border('large', 0, 0, 0, 0, 1); }
+
+    &.largeCuts { @include box-border('large', 1, 0, 1, 0, 1); }
+    &.mediumCuts { @include box-border('medium', 1, 0, 1, 0, 1); }
+    &.smallCuts { @include box-border('small', 1, 0, 1, 0, 1); }
+    &.largeTopCut { @include box-border('large', 1, 0, 0, 0, 1); }
+    &.mediumTopCut { @include box-border('medium', 1, 0, 0, 0, 1); }
+    &.smallTopCut { @include box-border('small', 1, 0, 0, 0, 1); }
+    &.largeBottomCut { @include box-border('large', 0, 0, 1, 0, 1); }
+    &.mediumBottomCut { @include box-border('medium', 0, 0, 1, 0, 1); }
+    &.smallBottomCut { @include box-border('small', 0, 0, 1, 0, 1); }
+
+    &.largeFills { @include box-border('large', 0, 1, 0, 1, 1); }
+    &.mediumFills { @include box-border('medium', 0, 1, 0, 1, 1); }
+    &.smallFills { @include box-border('small', 0, 1, 0, 1, 1); }
+    &.largeTopFill { @include box-border('large', 0, 1, 0, 0, 1); }
+    &.mediumTopFill { @include box-border('medium', 0, 1, 0, 0, 1); }
+    &.smallTopFill { @include box-border('small', 0, 1, 0, 0, 1); }
+    &.largeBottomFill { @include box-border('large', 0, 0, 0, 1, 1); }
+    &.mediumBottomFill { @include box-border('medium', 0, 0, 0, 1, 1); }
+    &.smallBottomFill { @include box-border('small', 0, 0, 0, 1, 1); }
+
+    &.largeTopFillBottomCut { @include box-border('large', 0, 1, 1, 0, 1); }
+    &.mediumTopFillBottomCut { @include box-border('medium', 0, 1, 1, 0, 1); }
+    &.smallTopFillBottomCut { @include box-border('small', 0, 1, 1, 0, 1); }
+    &.largeBottomFillTopCut { @include box-border('large', 1, 0, 0, 1, 1); }
+    &.mediumBottomFillTopCut { @include box-border('medium', 1, 0, 0, 1, 1); }
+    &.smallBottomFillTopCut { @include box-border('small', 1, 0, 0, 1, 1); }
+}
+
+.fills {
+    position: absolute;
+    background-color: rgba($www-space-gray, $default-alpha);
+
+    @supports (-ms-ime-align:auto) {
+        /* Recognize Edge, since edge doesn't support clip-path */
+        display: none;
+    }
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* Recognize IE, since IE doesn't support clip-path */
+        display: none;
+    }
+
+    // box-fill(size, fillTop, fillBottom, offset)
+
+    &.regular {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &.largeFills { @include box-fill('large', 1, 1, 0); }
+        &.mediumFills { @include box-fill('medium', 1, 1, 0); }
+        &.smallFills { @include box-fill('small', 1, 1, 0); }
+        &.largeTopFill { @include box-fill('large', 1, 0, 0); }
+        &.mediumTopFill { @include box-fill('medium', 1, 0, 0); }
+        &.smallTopFill { @include box-fill('small', 1, 0, 0); }
+        &.largeBottomFill { @include box-fill('large', 0, 1, 0); }
+        &.mediumBottomFill { @include box-fill('medium', 0, 1, 0); }
+        &.smallBottomFill { @include box-fill('small', 0, 1, 0); }
+    }
+
+    &.offset {
+        top: 1px;
+        left: 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+
+        &.largeFills { @include box-fill('large', 1, 1, 1px); }
+        &.mediumFills { @include box-fill('medium', 1, 1, 1px); }
+        &.smallFills { @include box-fill('small', 1, 1, 1px); }
+        &.largeTopFill { @include box-fill('large', 1, 0, 1px); }
+        &.mediumTopFill { @include box-fill('medium', 1, 0, 1px); }
+        &.smallTopFill { @include box-fill('small', 1, 0, 1px); }
+        &.largeBottomFill { @include box-fill('large', 0, 1, 1px); }
+        &.mediumBottomFill { @include box-fill('medium', 0, 1, 1px); }
+        &.smallBottomFill { @include box-fill('small', 0, 1, 1px); }
+    }
+}
+
+.content {
+    background-color: rgba($www-night-black, $default-alpha);
+
+    // box(large, cutTop, cutBottom, cutCorner, offset)
+
+    &.regular {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &.cornerOnly { @include box('large', 0, 0, 1, 0); }
+
+        &.corner {
+            &.largeCuts { @include box('large', 1, 1, 1, 0); }
+            &.mediumCuts { @include box('medium', 1, 1, 1, 0); }
+            &.smallCuts { @include box('small', 1, 1, 1, 0); }
+            &.largeTopCut { @include box('large', 1, 0, 1, 0); }
+            &.mediumTopCut { @include box('medium', 1, 0, 1, 0); }
+            &.smallTopCut { @include box('small', 1, 0, 1, 0); }
+            &.largeBottomCut { @include box('large', 0, 1, 1, 0); }
+            &.mediumBottomCut { @include box('medium', 0, 1, 1, 0); }
+            &.smallBottomCut { @include box('small', 0, 1, 1, 0); }
+        }
+
+        &.noCorner {
+            &.largeCuts { @include box('large', 1, 1, 0, 0); }
+            &.mediumCuts { @include box('medium', 1, 1, 0, 0); }
+            &.smallCuts { @include box('small', 1, 1, 0, 0); }
+            &.largeTopCut { @include box('large', 1, 0, 0, 0); }
+            &.mediumTopCut { @include box('medium', 1, 0, 0, 0); }
+            &.smallTopCut { @include box('small', 1, 0, 0, 0); }
+            &.largeBottomCut { @include box('large', 0, 1, 0, 0); }
+            &.mediumBottomCut { @include box('medium', 0, 1, 0, 0); }
+            &.smallBottomCut { @include box('small', 0, 1, 0, 0); }
+        }
+    }
+
+    &.offset {
+        top: 1px;
+        left: 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+
+        &.cornerOnly { @include box('large', 0, 0, 1, 1px); }
+
+        &.corner {
+            &.largeCuts { @include box('large', 1, 1, 1, 1px); }
+            &.mediumCuts { @include box('medium', 1, 1, 1, 1px); }
+            &.smallCuts { @include box('small', 1, 1, 1, 1px); }
+            &.largeTopCut { @include box('large', 1, 0, 1, 1px); }
+            &.mediumTopCut { @include box('medium', 1, 0, 1, 1px); }
+            &.smallTopCut { @include box('small', 1, 0, 1, 1px); }
+            &.largeBottomCut { @include box('large', 0, 1, 1, 1px); }
+            &.mediumBottomCut { @include box('medium', 0, 1, 1, 1px); }
+            &.smallBottomCut { @include box('small', 0, 1, 1, 1px); }
+        }
+
+        &.noCorner {
+            &.largeCuts { @include box('large', 1, 1, 0, 1px); }
+            &.mediumCuts { @include box('medium', 1, 1, 0, 1px); }
+            &.smallCuts { @include box('small', 1, 1, 0, 1px); }
+            &.largeTopCut { @include box('large', 1, 0, 0, 1px); }
+            &.mediumTopCut { @include box('medium', 1, 0, 0, 1px); }
+            &.smallTopCut { @include box('small', 1, 0, 0, 1px); }
+            &.largeBottomCut { @include box('large', 0, 1, 0, 1px); }
+            &.mediumBottomCut { @include box('medium', 0, 1, 0, 1px); }
+            &.smallBottomCut { @include box('small', 0, 1, 0, 1px); }
+        }
+    }
+}
+
+.defaultFilled {
+    background-color: rgba($www-space-gray, $default-alpha);
+}
+
+.transparent {
+    background-color: transparent;
+
+    + .fills {
+        background-color: rgba($www-space-gray, $default-alpha);
+    }
+}

@@ -1,0 +1,25 @@
+@import '~shared/styles/config';
+
+.section {
+    padding: 25px 0;
+
+    &.large {
+        padding: 40px 0;
+    }
+
+    @include viewport(tablet) {
+        padding: 40px 0;
+
+        &.large {
+            padding: 60px 0;
+        }
+    }
+
+    @include viewport(desktop) {
+        padding: 60px 0;
+
+        &.large {
+            padding: 80px 0;
+        }
+    }
+}

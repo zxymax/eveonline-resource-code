@@ -1,0 +1,54 @@
+@import '~shared/styles/config';
+
+.breadcrumbs {
+    // background-color: blue;
+    // text-align: left;
+    text-transform: uppercase;
+    color: #c0c0c0;
+    display: flex;
+    align-items: flex-start;
+    // justify-items: center;
+    justify-content: flex-start;
+
+    .home {
+        @include viewport(mobileMax) {
+            svg {
+                width: 20px;
+            }
+        }
+    }
+
+    .links {
+        // background-color: green;
+        margin-top: 3px;
+
+        @include viewport(mobileMax) {
+            span:nth-child(3) {
+                display: none;
+            }
+        }
+
+        .item {
+            font-weight: $font-semibold;
+            transition: 0.2s ease-in-out;
+
+            @include viewport(mobileMax) {
+                font-size: 14px;
+            }
+
+            &.active,
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    .seperator {
+        // background-color: red;
+        padding: 0 5px;
+
+        @include viewport(mobile) {
+            padding: 0 10px;
+        }
+    }
+}

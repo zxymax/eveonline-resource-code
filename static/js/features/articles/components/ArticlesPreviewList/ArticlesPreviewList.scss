@@ -1,0 +1,82 @@
+@import '~shared/styles/config';
+
+.articlesPreview {
+    position: relative;
+    color: #fff;
+    padding-top: 100px;
+    margin-bottom: 100px;
+    z-index: 20;
+
+    .heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        h2 {
+            font-size: 22px;
+
+            @include viewport (tablet) {
+                font-size: 26px;
+            }
+
+            font-weight: $font-light;
+
+            span {
+                @include font-semibold();
+            }
+        }
+
+        .read_more {
+            font-size: 12px;
+
+            @include viewport (tablet) {
+                font-size: 14px;
+            }
+
+            margin: 0;
+            // padding-top: 30px;
+            text-transform: uppercase;
+
+            @include viewport (mdMax) {
+                padding-top: 20px;
+            }
+
+            .arrow {
+                color: #979797;
+                margin-left: 8px;
+            }
+        }
+    }
+
+    a {
+        // color: red;
+        transition: color ease-in-out 0.15s;
+
+        &:hover {
+            color: $brand-higlight;
+        }
+
+        .read_more {
+            color: white;
+
+            &:hover {
+                color: white;
+
+                .arrow {
+                    color: $brand-higlight;
+                }
+            }
+        }
+    }
+}
+
+@include viewport (mdMax) {
+    .articlesPreview {
+        padding-top: 40px;
+        margin-bottom: 0;
+    }
+
+    .read_more {
+        padding-top: 20px;
+    }
+}

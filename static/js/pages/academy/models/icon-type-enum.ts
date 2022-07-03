@@ -1,0 +1,28 @@
+enum IconTypeEnum {
+  HomeIcon,
+  Careers,
+  CareersEnforcerIcon,
+  CareersExplorerIcon,
+  CareersIndustrialistIcon,
+  CareersSoldierOfFortuneIcon,
+  Ships,
+  ShipsDestroyersIcon,
+  ShipsFrigatesIcon,
+  ShipsMiningShipsIcon,
+  World,
+  AuraIcon,
+  ArrowRight,
+  ArrowDown,
+  VideoIcon,
+  TextIcon,
+  EasyIcon,
+  MediumIcon,
+  HardIcon,
+  ShieldIcon,
+  ArmorIcon,
+  HullIcon,
+  TooltipIcon,
+  ActivitiesIcon,
+}
+
+export default IconTypeEnum

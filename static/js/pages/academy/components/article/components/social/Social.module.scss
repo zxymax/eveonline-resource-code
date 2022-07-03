@@ -1,0 +1,74 @@
+@import '~shared/styles/config';
+
+.social {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-gap: 15px;
+    grid-auto-flow: column;
+    padding: 15px 0;
+    border-top: 1px solid $www-space-gray;
+    border-bottom: 1px solid $www-space-gray;
+}
+
+.social_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background: $www-academy-secondary;
+    border-radius: 50%;
+
+    .icon {
+        font-size: 1.25em;
+        transition: $transition;
+    }
+
+    path {
+        fill: $www-academy;
+    }
+
+    &:hover {
+        .icon {
+            filter: brightness(1.2);
+        }
+    }
+}
+
+.copyLink {
+    position: relative;
+    padding: 0 12px;
+    cursor: pointer;
+
+    .copied {
+        display: inline-block;
+        font-size: 15px;
+        font-size: 13px;
+        opacity: 0;
+        position: absolute;
+        width: 100px;
+        left: 50px;
+
+        &.active {
+            opacity: 1;
+            animation: tracking-out-expand 1.2s
+                cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+    }
+}
+
+@keyframes tracking-out-expand {
+    0% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.8;
+    }
+
+    100% {
+        letter-spacing: 0.2em;
+        opacity: 0;
+    }
+}

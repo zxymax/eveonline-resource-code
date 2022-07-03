@@ -1,0 +1,51 @@
+@import '~shared/styles/config';
+
+.navigation {
+    position: relative;
+    margin: 15px 0;
+
+    @include viewport(mobileMax) {
+        margin: 0;
+    }
+
+    ol {
+        @include reset-list;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 30px;
+
+        &.frontpage {
+            grid-template-columns: 2fr 2fr 1fr 1fr;
+        }
+
+        @include viewport(desktopMax) {
+            column-gap: 20px;
+
+            &.frontpage {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @include viewport(tabletmax) {
+            column-gap: 20px;
+
+            &.frontpage {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @include viewport(mobileMax) {
+            grid-template-columns: 1fr;
+            column-gap: 0;
+            // margin: 0 -15px;
+            padding: 5px 0;
+            // background-color: $www-smoke-gray;
+
+            &.frontpage {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
+

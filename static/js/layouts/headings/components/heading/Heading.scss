@@ -1,0 +1,107 @@
+@import '~shared/styles/config';
+
+.heading {
+    @include font-medium();
+    display: inline-flex;
+    align-items: center;
+    // font-size: 30px;
+    letter-spacing: 0;
+    color: transparent;
+    transform: translate3d(-30px, 0, 0);
+    transition: 0.8s cubic-bezier(0.5, 0.11, 0.17, 1);
+    will-change: transform;
+    line-height: 1;
+    // line-height: 25px;
+    vertical-align: middle;
+
+    &.recruit {
+        font-size: 36px;
+
+        &::before {
+            background: $brand-recruit-red;
+            min-height: 26px;
+        }
+
+        &.visible {
+            color: #29353a;
+        }
+    }
+
+    &.small {
+        font-size: 26px;
+
+        &::before {
+            min-height: 18px;
+        }
+    }
+
+    &.regular {
+        font-size: 36px;
+
+        &::before {
+            min-height: 26px;
+        }
+    }
+
+    &.colorTheme::before {
+        background: $www-theme-heading-decorator;
+    }
+
+    &::before {
+        content: '';
+        background: $www-primary;
+        width: 4px;
+        // height: 22px;
+        transform: translate3d(120px, 0, 0);
+        min-height: 30px;
+        // margin-top: 4px;
+    }
+
+    span {
+        margin-left: 15px;
+    }
+
+    &.small::before {
+        min-height: 26px;
+    }
+
+    &.visible {
+        transform: translate3d(0, 0, 0);
+        color: #fff;
+
+        &::before {
+            // transition: 0.4s ease;
+            transition: 0.4s cubic-bezier(0.5, 0.11, 0.17, 1);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+/****************************
+    @media queries
+***************************/
+@include viewport(desktop) {
+    .heading {
+        line-height: 34px;
+        // font-size: 52px;
+
+        &::before {
+            width: 6px;
+            min-height: 34px;
+            // height: 37px;
+            // margin-top: 8px;
+        }
+
+        .isRecruit {
+            font-size: 36px;
+
+            &::before {
+                min-height: 30px;
+            }
+        }
+
+        span {
+            margin-left: 20px;
+        }
+    }
+}

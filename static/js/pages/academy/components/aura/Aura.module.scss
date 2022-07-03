@@ -1,0 +1,29 @@
+@import '~shared/styles/config';
+
+.aura {
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 40px;
+        row-gap: 20px;
+        align-items: center;
+
+        @include viewport(mobile) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .text {
+            display: grid;
+            align-content: start;
+            grid-row-start: 2;
+
+            > svg {
+                margin-bottom: 10px;
+            }
+
+            @include viewport(mobile) {
+                grid-row-start: 1;
+            }
+        }
+    }
+}

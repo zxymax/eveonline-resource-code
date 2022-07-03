@@ -1,0 +1,23 @@
+@import '~shared/styles/config';
+
+// $form-dark: #343434;
+
+@mixin form-defaults() {
+    padding: 13px 18px;
+    font-size: 16px;
+    border: none;
+    background: #fff;
+    // color: $form-dark;
+
+    @include font-light();
+
+    &:focus {
+        // box-shadow: 0 1px 10px 2px $brand-primary;
+        // outline: 2px solid $brand-primary;
+    }
+
+    &.dark {
+        // background: $form-dark;
+        color: #fff;
+    }
+}

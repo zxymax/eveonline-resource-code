@@ -1,0 +1,165 @@
+@import '~shared/styles/config';
+
+.accountmenu {
+    position: relative;
+    overflow: visible;
+    font-size: 15px;
+    z-index: 24;
+
+    &.colorTheme {
+        .userIcon {
+            fill: $www-theme-highlight;
+        }
+
+        .arrow {
+            color: $www-theme-highlight;
+        }
+
+        ul .active a,
+        ul a:hover {
+            color: $www-theme-highlight !important;
+        }
+    }
+
+    .userName {
+        padding-left: 10px;
+    }
+
+    .userIcon {
+        display: inline-block;
+        fill: #30b2e6;
+        transition: 0.2s ease-in-out;
+    }
+
+    @media only screen and (max-width: $max-1440) {
+        .userName {
+            display: none;
+        }
+    }
+
+    .selected {
+        display: flex;
+        margin-left: 10px;
+        text-transform: uppercase;
+        font-weight: $font-semibold;
+        letter-spacing: 0.05em;
+
+        &.login {
+            cursor: pointer;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        .loginText {
+            padding-left: 10px;
+        }
+    }
+
+    ul {
+        position: absolute;
+        display: inline-block;
+        transform: translateY(10px);
+        transition: 0.2s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        background: #212121; // TODO: Change background when moved to Navigation
+        padding: 0;
+        padding-bottom: 5px;
+        left: auto;
+        right: 0;
+        top: 25px;
+        white-space: nowrap;
+
+        @media only screen and (max-width: $max-1280) {
+            right: -5px;
+        }
+
+        // Prevent opacity flicker on hover
+        &::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    }
+
+    .plex {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        align-items: center;
+        background: rgba($www-omega, 0.125);
+        padding: 6px 15px 6px 13px;
+
+        .details {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .detailsIcon {
+            display: flex;
+            margin-right: 5px;
+        }
+
+        .btn {
+            height: 18px;
+            font-size: 11px;
+            min-width: 75px;
+            letter-spacing: 0.06em;
+            font-weight: $font-semibold;
+            padding: 0 5px;
+            clip-path: polygon(
+                0% 0,
+                0 0%,
+                100% 0%,
+                100% 0,
+                100% calc(100% - 4px),
+                calc(100% - 4px) 100%,
+                0 100%,
+                0% calc(100% - 4px)
+            );
+        }
+    }
+
+    .arrow svg {
+        margin: 0 0 0 8px;
+        color: #30b2e6;
+        display: inline;
+        transition: 0.4s ease-in-out;
+    }
+
+    .tooltip {
+        max-width: 350px;
+
+        &::after {
+            border-bottom-color: $www-omega !important;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        ul {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+
+            li:hover {
+                color: white;
+            }
+        }
+
+        .arrow svg {
+            transform: scaleY(-1); // Flip arrow
+        }
+
+        .userIcon {
+            filter: brightness(120%);
+        }
+    }
+}

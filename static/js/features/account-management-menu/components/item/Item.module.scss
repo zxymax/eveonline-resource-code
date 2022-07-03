@@ -1,0 +1,35 @@
+@import '~shared/styles/config';
+
+.item {
+    display: block;
+    margin: 10px 15px;
+    font-size: 16px;
+    font-weight: $font-medium;
+
+    &:nth-child(1) {
+        margin-top: 0;
+    }
+
+    a {
+        display: grid;
+        grid-template-columns: min(22px) auto;
+        align-items: center;
+        grid-gap: 10px;
+        color: #fff;
+        transition: 0.2s ease-in-out;
+    }
+
+    .icon {
+        display: flex;
+        justify-self: center;
+    }
+
+    svg {
+        max-width: 22px;
+    }
+
+    .active a,
+    a:hover {
+        color: $www-primary;
+    }
+}

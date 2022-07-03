@@ -1,0 +1,16 @@
+@import '~shared/styles/config';
+
+.shipClassInfo {
+    transition: 0.2s ease-in-out;
+    transform: translate3d(0, 0, 0);
+    min-height: auto;
+
+    @include viewport(mobile) {
+        min-height: 220px;
+    }
+
+    &.changing {
+        opacity: 0;
+        transform: translate3d(-10px, 0, 0);
+    }
+}

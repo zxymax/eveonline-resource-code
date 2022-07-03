@@ -1,0 +1,28 @@
+@import '~shared/styles/config';
+
+.related {
+    padding-top: 40px;
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        margin-top: 30px;
+    }
+
+    /**********************************
+        @Media queries
+    **********************************/
+    @include viewport(tablet) {
+        padding-top: 80px;
+
+        .content {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+
+            // &.4 {
+            //     grid-template-columns: repeat(4, 1fr);
+            // }
+        }
+    }
+}

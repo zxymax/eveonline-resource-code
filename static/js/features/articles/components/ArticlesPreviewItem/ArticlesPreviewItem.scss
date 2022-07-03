@@ -1,0 +1,49 @@
+@import '~shared/styles/config';
+
+.item {
+    // width: 32%;
+    overflow: hidden;
+
+    .author_date {
+        font-size: 14px;
+        color: $color-font-gray;
+        text-transform: uppercase;
+    }
+
+    .image {
+        position: relative;
+        transition: 0.2s ease-in-out;
+        margin-bottom: 10px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 56.25%;
+
+        &:hover {
+            filter: brightness(1.2);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        &.default {
+            background-image: url('//web.ccpgamescdn.com/aws/eveonline/images/backgrounds/article-fallback.jpg');
+        }
+    }
+
+    .text {
+        letter-spacing: 0.05em;
+
+        a > h3 {
+            font-size: 18px;
+            transition: 0.2s ease-in-out;
+            opacity: 1;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}

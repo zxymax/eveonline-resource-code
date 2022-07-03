@@ -1,0 +1,25 @@
+@import '~shared/styles/config';
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        @include font-light();
+
+        span {
+            @include font-semibold();
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+@include viewport (tablet) {
+    .left {
+        padding-left: 40px;
+    }
+}

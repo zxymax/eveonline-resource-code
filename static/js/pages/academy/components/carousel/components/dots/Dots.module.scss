@@ -1,0 +1,36 @@
+@import '~shared/styles/config';
+
+.dots {
+    position: relative;
+    display: flex;
+    grid-gap: 5px;
+    height: 0;
+    top: 5px;
+    margin-top: 10px;
+
+    li {
+        list-style-type: none;
+        margin: 0 2.5px;
+    }
+
+    button {
+        width: 12px;
+        height: 12px;
+        color: transparent;
+        background: $www-silver-gray;
+        border: 0;
+        border-radius: 50%;
+        transition: background 0.3s ease-in-out;
+        font-size: 0;
+    }
+
+    :global .slick-active {
+        button {
+            background: $www-academy;
+        }
+    }
+
+    @include viewport(mobile) {
+        justify-content: center;
+    }
+}

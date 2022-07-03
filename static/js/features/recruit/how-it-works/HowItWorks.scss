@@ -1,0 +1,240 @@
+@import '~shared/styles/config';
+
+$main-color: $brand-recruit-red;
+
+.howItWorks {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    // grid-template-areas:
+    //     'step1 step2 step3'
+    //     'step4 step4 step4';
+
+    // justify-items: center;
+    @include viewport(mobile) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include viewport(desktop) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    margin-bottom: 20px;
+    margin-top: 60px;
+    column-gap: 30px;
+    row-gap: 30px;
+
+    .step {
+        // @include box('small', 1, 0, 0, 0);
+        // Need custom clip-path for the trailing arrow on the right
+        clip-path: polygon(0 0, 45px 0, 49px 5px, 104px 5px, 108px 0, 113% 0, 100% 120%, 0 100%);
+
+        // padding: 25px;
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        align-items: center;
+        background-color: #913019;
+        color: #fff;
+        padding: 23px 15px;
+        // padding-left: 80px;
+        position: relative;
+        font-size: 20px;
+
+        p {
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0;
+            line-height: 1.3em;
+
+            span {
+                font-size: 14px;
+                color: #c0c0c0;
+                display: block;
+                line-height: 1.3em;
+                margin-top: 10px;
+
+                @include viewport(mobile) {
+                    display: none;
+                }
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 65px;
+            height: 20px;
+            width: 20px;
+            transform: rotate(45deg);
+            background: #913019;
+        }
+
+        &:last-child {
+            &::after {
+                display: none;
+            }
+        }
+
+        @include viewport(mobile) {
+            &::after {
+                display: none;
+            }
+        }
+
+        @include viewport(desktop) {
+            &::after {
+                display: block;
+                top: 25px;
+                right: -15px;
+                height: 30px;
+                width: 30px;
+            }
+        }
+
+        .number {
+            border-radius: 50%;
+            background-color: #7b2511;
+            height: 48px;
+            width: 48px;
+            text-align: center;
+            padding-left: 2px;
+            padding-top: 3px;
+
+            h4 {
+                color: #fff;
+                line-height: 1.15em;
+                font-size: 36px;
+                @include font-medium();
+                margin: 0;
+
+                @include viewport(mobile) {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        // h4 {
+        //     color: #fff;
+
+        //     font-size: 20px;
+        //     text-transform: none;
+        // }
+    }
+
+    // @media only screen and (max-width: '1080px') {
+    //     grid-template-columns: 1fr;
+    // }
+
+    // .border {
+    //     background: #e8f1f2;
+    // }
+
+    // .steps {
+    //     display: flex;
+    //     // flex-direction: column;
+    //     // justify-content: space-around;
+    //     align-items: flex-start;
+    //     margin-bottom: 40px;
+    //     @include font-light();
+
+    //     @media only screen and (min-width: '980px') {
+    //         margin-right: 80px;
+    //     }
+
+    //     .deco {
+    //         background: transparent url('../../../static/img/recruit/recruit-badge-small2.png') no-repeat top center;
+    //         min-width: 70px;
+    //         min-height: 81px;
+    //         margin-right: 35px;
+    //         position: relative;
+
+    //         &::after {
+    //             content: '';
+    //             width: 24px;
+    //             height: 32px;
+    //             background: transparent url('../../../static/img/recruit/social-small.png') no-repeat top center;
+    //             position: absolute;
+    //             top: 50%;
+    //             left: 32%;
+    //             font-size: 30px;
+    //             transform: translateX(-50%);
+    //             transform: translateY(-50%);
+    //         }
+
+    //         &.step2 {
+    //             &::after {
+    //                 background: transparent url('../../../static/img/recruit/head-small.png') no-repeat top center;
+    //             }
+    //         }
+
+    //         svg {
+    //             position: absolute;
+    //             top: 50%;
+    //             left: 50%;
+    //             font-size: 30px;
+    //             transform: translateX(-50%);
+    //         }
+    //     }
+
+    //     .text {
+    //         margin-top: 15px;
+
+    //         h4 {
+    //             margin-bottom: 5px;
+    //             margin-top: 0;
+    //         }
+    //     }
+    // }
+}
+
+.mustRegister {
+    display: none;
+
+    @include viewport(mobile) {
+        display: block;
+    }
+}
+
+// .howItWorksLower {
+//     margin-top: 50px;
+
+//     .step4 {
+//         background-color: #913019;
+//         color: #fff;
+//         display: grid;
+//         grid-template-columns: 1fr 2fr;
+//         column-gap: 30px;
+
+//         .number {
+//             min-height: 300px;
+//             display: grid;
+//             justify-content: center;
+//             align-items: center;
+//             background: transparent url('../../../static/img/recruit/step3-bg.jpg') no-repeat top center;
+//             background-size: cover;
+
+//             .poly {
+//                 width: 85px;
+//                 height: 96px;
+//                 clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+//                 background-color: white;
+//                 position: relative;
+
+//                 .inner {
+//                     width: 100%;
+//                     position: absolute;
+//                     top: 50%;
+//                     -ms-transform: translateY(-50%);
+//                     -webkit-transform: translateY(-50%);
+//                     transform: translateY(-50%);
+//                     text-align: center;
+//                     color: $main-color;
+//                     font-size: 48px;
+//                 }
+//             }
+//         }
+//     }
+// }

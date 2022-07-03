@@ -1,0 +1,49 @@
+@import '~shared/styles/config';
+
+.empires {
+    .intro {
+        @include viewport(tablet) {
+            max-width: 55%;
+        }
+    }
+
+    .content {
+        margin: 0 auto;
+        max-width: 1551px;
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 15px;
+
+        @media only screen and (min-width: $max-540) and (max-width: $max-768) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include viewport(mobile) {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 40px;
+        }
+
+        @include viewport(tablet) {
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 60px;
+        }
+
+        column-gap: 30px;
+        row-gap: 30px;
+
+        .item {
+            margin: 0 auto;
+
+            img {
+                transition: all 0.3s;
+            }
+
+            &:hover {
+                img {
+                    filter: brightness(1.2);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+@import '~shared/styles/config';
+
+.download,
+.NoDownload {
+    color: white;
+    text-align: center;
+    // margin-top: 50px;
+
+    h3 {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+
+        svg {
+            font-size: 48px;
+            margin-right: 20px;
+            color: $brand-success;
+            // margin-bottom: -4px;
+
+            @include viewport(mobileMax) {
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .success,
+    .failed {
+        margin-right: 20px;
+
+        @include viewport(mobileMax) {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+    }
+
+    .success {
+        color: $brand-success;
+    }
+
+    .failed {
+        color: $www-blood-red;
+    }
+
+    .buttons {
+        width: 100%;
+        // max-width: 500px;
+        margin: 30px auto 0;
+    }
+
+    .downloadInProgress {
+        margin: 30px 0;
+    }
+
+    // .downloadedSuccess {
+    //     font-size: 44px;
+    // }
+
+    .steps {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+        list-style-type: none;
+        margin: 0 0 20px;
+        padding: 10px 0;
+
+        > div {
+            h2 {
+                color: #777;
+            }
+
+            font-size: 16px;
+            background: #29353a;
+            padding: 20px 10px 15px;
+            position: relative;
+            color: #fff;
+            clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 95%, 95% 100%, 20% 100%, 0 100%, 0% 20%);
+        }
+    }
+}
+
+.NoDownload {
+    .successIcon {
+        color: $brand-success;
+        font-size: 45px;
+
+        @include viewport(mobileMax) {
+            font-size: 15vw;
+        }
+
+        margin-bottom: 20px;
+    }
+
+    .platform {
+        font-size: 70px;
+        margin: 10px 0;
+
+        svg {
+            margin: 0 20px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    a {
+        color: $brand-primary;
+        font-size: 24px;
+
+        &:hover {
+            color: $brand-higlight;
+        }
+    }
+}

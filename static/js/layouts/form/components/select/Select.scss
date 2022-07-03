@@ -1,0 +1,34 @@
+@import '../../Form.scss';
+
+.select,
+.select:focus {
+    width: 100%;
+
+    @include form-defaults();
+
+    @include viewport(tablet) {
+        width: unset;
+    }
+
+    option {
+        background: inherit;
+    }
+
+    @media only screen and (max-width: $max-375) {
+        display: block;
+        width: 100%;
+
+        &:not(:first-of-type) {
+            margin-top: 10px;
+        }
+    }
+
+    @media only screen and (min-width: $min-375) {
+        display: inline-block;
+        width: unset;
+
+        &:not(:first-of-type) {
+            margin-left: 15px;
+        }
+    }
+}

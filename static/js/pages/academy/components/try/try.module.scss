@@ -1,0 +1,28 @@
+@import '~shared/styles/config';
+
+.try {
+    .intro {
+        max-width: 950px;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+
+        @include viewport(mobile) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+       @include viewport(tablet) {
+           margin-top: 60px;
+       } 
+
+        column-gap: 30px;
+        row-gap: 30px;
+
+        .item {
+            margin: 0 auto;
+        }
+    }
+}

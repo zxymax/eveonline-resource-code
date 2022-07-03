@@ -1,0 +1,112 @@
+@import '~shared/styles/config';
+
+.stream {
+    // outline: 1px solid red;
+    background-color: #f5f5f5;
+    padding: 10px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    // height: 200px;
+    // width: 200px;
+    min-width: 260px;
+    z-index: 25;
+    filter: drop-shadow(0 0 0.75rem black);
+    transition: 0.8s transform, 0.4s opacity;
+    transform: translate3d(0, 30px, 0);
+    opacity: 0;
+
+    @include viewport(tabletmax) {
+        display: none;
+    }
+
+    &.loaded {
+        transition-delay: 1.7s;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+
+    &:hover {
+        filter: drop-shadow(0 0 0.85rem #30b2e6);
+    }
+
+    color: #212121;
+
+    .close {
+        outline: none;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        // height: 20px;
+
+        svg {
+            font-size: 16px;
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+
+        path {
+            fill: #777;
+        }
+
+        &:hover path {
+            fill: #000;
+        }
+    }
+
+    .countdownContainer {
+        margin-top: 10px;
+        text-align: center;
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 0px;
+            color: #212121;
+            font-weight: $font-medium;
+        }
+
+        .numbers {
+            font-size: 26px;
+            color: #777777;
+            font-weight: $font-semibold;
+            margin-bottom: 5px;
+        }
+
+        img {
+            margin: 0 auto;
+        }
+
+        a {
+            background-color: #ba1f7e;
+            color: #fff;
+            transition: all 0.4s;
+            font-size: 13px;
+            width: 100%;
+            height: 35px;
+
+            &:hover {
+                background-color: #a1136b;
+            }
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 7px;
+
+        h5 {
+            color: #212121;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 16px;
+
+            strong {
+                color: #d80d86;
+            }
+        }
+    }
+}

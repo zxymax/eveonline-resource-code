@@ -1,0 +1,21 @@
+@import '~shared/styles/config';
+
+.academyContainer {
+    padding-bottom: 20px;
+
+    @include viewport(mobile) {
+        padding-bottom: 80px;
+    }
+}
+
+.academy {
+    // all links under academy will be the same
+    p a {
+        color: $www-academy;
+        transition: $transition;
+
+        &:hover {
+            color: lighten($www-academy, 10%);
+        }
+    }
+}

@@ -1,0 +1,233 @@
+@import '~shared/styles/config';
+
+.footer {
+    position: relative;
+    background: $brand-black;
+    color: #fff;
+    padding: 60px 0;
+
+    @media only screen and (max-width: $max-840) {
+        padding-bottom: 115px;
+    }
+
+    .row {
+        margin: 0;
+        padding-top: 20px;
+
+        a {
+            @include reset-anchor;
+        }
+
+        h3 {
+            font-size: 24px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 0;
+            @include font-light();
+        }
+    }
+
+    .col li {
+        @include reset-list;
+    }
+
+    .top {
+        flex-direction: column;
+        padding-top: 0;
+    }
+
+    .below {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 35px;
+
+        .col {
+            &:nth-child(2) {
+                padding-top: 15px;
+            }
+
+            flex: 1 1 100%;
+            padding-top: 30px;
+
+            ul {
+                padding: 0;
+            }
+
+            li {
+                font-size: 15px;
+                letter-spacing: 0.05em;
+                margin-top: 15px;
+                transition: 0.2s ease-in-out;
+                @include font-light();
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &:first-of-type {
+                    text-transform: uppercase;
+                    color: #979797;
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    letter-spacing: 0.15em;
+                    @include font-medium();
+                }
+            }
+        }
+
+        .language {
+            flex: 0 0 100%;
+        }
+    }
+
+    .required {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+
+        .copyright {
+            flex: 1 1 100%;
+            color: #979797;
+            font-size: 14px;
+            @include font-light();
+        }
+
+        .rating {
+            flex: 1 1 100%;
+            padding-top: 10px;
+
+            .pegi {
+                display: flex;
+            }
+        }
+    }
+}
+
+.seo {
+    color: #979797;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    margin: 20px 0;
+
+    @include viewport(desktop) {
+        grid-template-columns: 1fr 1fr 1fr;
+
+        p {
+            font-size: 15px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
+
+    a {
+        color: inherit;
+        font-weight: inherit;
+
+        &:hover {
+            color: inherit;
+            text-decoration: underline;
+        }
+    }
+}
+
+.social {
+    div {
+        margin-left: 20px;
+
+        &:first-of-type {
+            margin-left: 0;
+        }
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .footer {
+        .below {
+            .col {
+                flex: 1 1 50%;
+
+                &:nth-child(3) {
+                    padding-top: 15px;
+                }
+            }
+        }
+
+        .required {
+            flex-direction: row;
+            align-items: center;
+
+            .copyright {
+                flex: 1 1 50%;
+            }
+
+            .rating {
+                flex: 1 1 50%;
+                padding-top: 0;
+
+                .pegi {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+
+                .esrb {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+}
+
+@include viewport(tablet) {
+    .footer {
+        padding: 70px 0;
+
+        .row {
+            h3 {
+                font-size: 28px;
+            }
+        }
+
+        .top {
+            display: flex;
+            flex-direction: row;
+
+            h3 {
+                flex: 1 1 50%;
+                margin-bottom: 0;
+            }
+
+            .social {
+                flex: 1 1 50%;
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+
+        .below {
+            flex-wrap: nowrap;
+            padding-top: 50px;
+
+            .col {
+                padding-top: 0;
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    padding-top: 0;
+                }
+            }
+
+            .language {
+                order: 1;
+                display: block;
+                flex: 0 0 40px;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .dark {
+        color: #979797;
+    }
+}

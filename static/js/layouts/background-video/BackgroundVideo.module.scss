@@ -1,0 +1,33 @@
+@import '~shared/styles/config';
+
+.bgVideo {
+    filter: opacity(0.7);
+
+    @include fit;
+
+    @include viewport(desktop) {
+        filter: opacity(1);
+    }
+
+    video {
+        width: 100%;
+    }
+
+    &.fill video {
+        min-height: 100%;
+        min-width: 100%;
+        width: auto;
+        object-fit: cover;
+
+        @include centerer;
+    }
+}
+
+.poster {
+    @include fit;
+
+    img {
+        width: 100%;
+    }
+}
+

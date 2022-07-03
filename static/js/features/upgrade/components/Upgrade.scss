@@ -1,0 +1,110 @@
+@import '~shared/styles/config';
+
+.upgrade {
+    position: relative;
+
+    .row {
+        // @include row;
+
+        display: flex;
+        flex-wrap: wrap;
+        // flex-direction: row-reverse;
+        margin: 0;
+
+        .image {
+            padding-bottom: 20px;
+
+            img {
+                width: auto;
+                max-width: 75%;
+            }
+        }
+
+        .text {
+            flex-direction: column;
+            padding: 0;
+
+            h2 {
+                font-size: 28px;
+                margin-top: 8px;
+                margin-bottom: 22px;
+                @include font-light();
+                // line-height: 0.8;
+
+                span {
+                    @include font-semibold();
+                }
+            }
+
+            p {
+                font-size: 20px;
+                margin-bottom: 40px;
+            }
+        }
+
+        .btn {
+            display: flex;
+            align-self: center;
+            padding: 0;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .omega {
+            font-size: 14px;
+            margin-top: 10px;
+            letter-spacing: 0.075em;
+            color: #fff;
+            @include font-medium();
+
+            // transition: 0.2s ease-in-out;
+
+            // &:hover {
+            //     opacity: 0.8;
+            // }
+        }
+    }
+}
+
+@include viewport(tablet) {
+    .upgrade {
+        .row {
+            margin-left: 15px;
+            margin-right: 15px;
+            flex-direction: row;
+
+            .text {
+                h2 {
+                    font-size: 36px;
+                }
+
+                p {
+                    font-size: 22px;
+                }
+            }
+
+            .image {
+                padding: 0;
+                width: 15%;
+                padding-right: 10px;
+
+                img {
+                    max-width: 100%;
+                    padding-top: 15px;
+                }
+            }
+
+            .btn {
+                justify-content: flex-end;
+                align-self: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .omega {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+

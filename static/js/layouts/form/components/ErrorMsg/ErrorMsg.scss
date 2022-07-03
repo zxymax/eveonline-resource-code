@@ -1,0 +1,83 @@
+.invalidFeedback {
+  // --error-color: #f44336;
+  --animation-duration: 1s;
+  --animation-duration-exit: 0.3s;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  margin-top: 5px;
+  font-size: 14px;
+  color: var(--sf-error-color);
+
+  svg {
+      margin-right: 10px;
+  }
+
+  opacity: 0;
+
+  &.msgEnter {
+      opacity: 0;
+      animation: slideDown var(--animation-duration);
+
+      svg {
+          color: green;
+      }
+      // animation-delay: 0.7s;
+      // animation-fill-mode: forwards;
+  }
+
+  &.msgEnterActive {
+      opacity: 1;
+      animation: slideDown var(--animation-duration);
+      // animation-delay: 0.7s;
+      // animation-fill-mode: forwards;
+  }
+
+  &.msgEnterDone {
+      opacity: 1;
+  }
+
+  &.msgExit {
+      opacity: 1;
+      animation: slideUp var(--animation-duration-exit);
+
+      svg {
+          opacity: 0;
+      }
+  }
+
+  &.msgExitActive {
+      opacity: 0;
+      animation: slideUp var(--animation-duration-exit);
+  }
+
+  @keyframes slideDown {
+      0% {
+          transform: translateY(-10px);
+          opacity: 0;
+      }
+
+      50% {
+          transform: translateY(-10px);
+          opacity: 0;
+      }
+
+      100% {
+          transform: translateY(0);
+          opacity: 1;
+      }
+  }
+
+  @keyframes slideUp {
+      0% {
+          transform: translateY(0);
+          opacity: 1;
+      }
+
+      100% {
+          transform: translateY(-10px);
+          opacity: 0;
+      }
+  }
+}
