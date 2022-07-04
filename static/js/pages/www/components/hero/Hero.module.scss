@@ -1,0 +1,258 @@
+@import '~shared/styles/config';
+
+// CTA button animation
+@import 'CTA.scss';
+
+.hero {
+    padding: 120px 0 0;
+    position: relative;
+    overflow: hidden;
+
+    @include bg-img;
+
+    // TODO: Remove below when we get new key art?
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 168px;
+        background-image: linear-gradient(
+            to bottom,
+            rgba(#000, 0.7),
+            transparent
+        );
+        z-index: 1;
+    }
+
+    // Stars in bottom of hero area (use when image does not contain stars)
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 197px;
+        background-image: url(//web.ccpgamescdn.com/aws/eveonline/images/transparency-transition.png);
+        background-repeat: repeat-x;
+        pointer-events: none;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    h1,
+    h2 {
+        line-height: 1.1;
+    }
+
+    h1 {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    h2 {
+        margin-top: 10px;
+    }
+
+    .buttons {
+        margin-top: 20px;
+    }
+
+    .btn {
+        margin-top: 10px;
+        margin-right: 30px;
+    }
+
+    .ribbon {
+        position: absolute;
+        top: -22px;
+        left: -30px;
+        background: #d81f27;
+        padding: 2px 12px;
+        padding-right: 15px;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 14px;
+        max-width: 130px;
+        line-height: 1.2;
+        clip-path: polygon(
+            100% 0,
+            calc(100% - 8px) 50%,
+            100% 100%,
+            0 100%,
+            0 0
+        );
+
+        @include font-semibold();
+    }
+
+    .announcement {
+        margin-top: 30px;
+        opacity: 0;
+        animation: hero-opacity 0.5s ease-in 2.5s forwards;
+
+        @include viewport(mobileMax) {
+            text-align: center;
+        }
+
+        .text {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            font-weight: $font-semibold;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 6px rgb(0 0 0 / 75%);
+
+            a {
+                border-bottom: 1px solid $www-primary;
+                padding-bottom: 3px;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: $www-primary;
+                }
+            }
+        }
+    }
+
+    .quotes {
+        opacity: 0;
+        animation: hero-opacity 0.5s ease-in 2.5s forwards;
+    }
+
+    .returningPlayer {
+        visibility: hidden;
+
+        p {
+            line-height: 1.2;
+        }
+
+        a {
+            color: #fff;
+            margin-left: 2px;
+
+            &:hover {
+                color: #00aeff;
+            }
+        }
+    }
+
+    &.colorTheme {
+        h1 {
+            color: $www-theme-h1;
+        }
+
+        h2 {
+            color: $www-theme-h2;
+        }
+    }
+}
+
+/**********************************
+    @Media queries
+**********************************/
+
+@include viewport(mobile) {
+    .hero {
+        padding: 250px 0 0;
+    }
+}
+
+@include viewport(tablet) {
+    .hero {
+        padding: 140px 0 0;
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .returningPlayer {
+            text-shadow: unset;
+        }
+
+        // &.HeroCenter .container {
+        //     margin-bottom: 100px;
+        // }
+    }
+}
+
+@include viewport(desktop) {
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+        justify-content: flex-end;
+
+        @media screen and (min-height: 767px) {
+            .container {
+                margin-top: 180px;
+            }
+        }
+
+        @media screen and (min-height: 1000px) {
+            justify-content: center;
+
+            // .container {
+            //     margin-top: 310px;
+            // }
+        }
+
+        /*******************************
+        - Hero alignment starts
+        *******************************/
+        &.HeroRight {
+            text-align: right;
+
+            h1 {
+                margin-left: auto;
+                margin-right: -4px;
+            }
+
+            .btn {
+                margin-right: 0;
+                margin-left: 30px;
+            }
+        }
+
+        &.HeroCenter {
+            text-align: center;
+
+            h1 {
+                margin: 0 auto;
+            }
+
+            .btn {
+                margin: 10px 15px 0;
+            }
+        }
+
+        /*******************************
+        - Hero alignment ends
+        *******************************/
+
+        .container {
+            width: 100%;
+        }
+    }
+}
+
+@include viewport(xlargeDesktopUp) {
+    .hero {
+        padding: 220px 0 0;
+    }
+}
+
+@keyframes hero-opacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

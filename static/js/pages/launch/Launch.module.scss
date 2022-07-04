@@ -1,0 +1,46 @@
+@import '~shared/styles/config';
+
+.launch {
+    padding: 150px 0 80px;
+    background-position: 50% 50%;
+
+    .content {
+        text-align: center;
+        max-width: 630px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    .heading {
+        margin-top: 0;
+    }
+
+    .buttons {
+        display: grid;
+        grid-gap: 20px;
+        padding-top: 10px;
+    }
+}
+
+@include viewport(tablet) {
+    .launch {
+        padding: 200px 0;
+
+        .content {
+            padding: 40px 60px;
+        }
+    }
+}
+
+@include viewport(desktop) {
+    .launch {
+        // display: flex;
+        // align-items: center;
+        height: 90vh;
+        min-height: 720px;
+
+        .text {
+            text-align: right;
+        }
+    }
+}

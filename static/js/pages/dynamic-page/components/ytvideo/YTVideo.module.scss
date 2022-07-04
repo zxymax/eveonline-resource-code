@@ -1,0 +1,21 @@
+@import '~shared/styles/config';
+
+.wrapper {
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include viewport(max1440) {
+        width: 100%;
+    }
+
+    @include viewport(mobileMax) {
+        padding: 0 15px;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        font-size: 26px;
+        font-weight: $font-medium;
+    }
+}

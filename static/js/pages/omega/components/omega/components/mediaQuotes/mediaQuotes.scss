@@ -1,0 +1,70 @@
+@import '~shared/styles/config';
+
+.MediaQuotes {
+    @import '~shared/styles/carousel';
+
+    margin: 42px auto 20px;
+    max-width: 650px;
+    font-size: 32px;
+
+    @include viewport(mobileMax) {
+        max-width: 80%;
+        font-size: 18px;
+    }
+
+    .imgWrapper {
+        text-align: center;
+        padding-top: 20px;
+        display: block;
+
+        img {
+            display: block;
+            margin: 0 auto;
+            transition: none;
+        }
+    }
+
+    @include font-light();
+
+    .slick-active img:first-child {
+        transition: none;
+    }
+
+    /* stylelint-disable-next-line */
+    :global {
+        .slick-slide img:first-child {
+            // transition: none;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .slick-next,
+        .slick-prev {
+            color: #fff;
+            font-size: 35px;
+        }
+
+        .slick-arrow {
+            // position: absolute;
+            bottom: -20px;
+            // color: white;
+            color: white;
+
+            &.slick-prev {
+                &::before {
+                    content: '';
+                }
+            }
+
+            &.slick-next {
+                color: white;
+
+                &::before {
+                    content: '';
+                    color: white;
+                }
+            }
+        }
+    }
+}
+

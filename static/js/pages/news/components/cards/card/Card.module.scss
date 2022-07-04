@@ -1,0 +1,123 @@
+@import '~shared/styles/config';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    // (card) Hover class
+    &.filled.hover {
+        background: $www-space-gray;
+    }
+
+    // (card) Filled class
+    &.filled .content {
+        padding: 20px;
+        background: $www-space-gray;
+        transition: transform 0.3s;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 20px;
+            border-bottom: 5px solid $www-space-gray;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            height: 0;
+            width: 83px;
+        }
+    }
+
+    .content {
+        padding: 10px 0;
+        flex: 1;
+
+        @include viewport(mobileMax) {
+            > span {
+                // display: none;
+            }
+        }
+    }
+
+    .imgWrapper {
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 56.25%; // Keep aspect ratio of images
+
+        &::after {
+            content: '';
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+    }
+
+    .img {
+        width: 100%;
+        object-fit: cover; // TODO: Keep in mind that this stretches img's that are smaller
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $www-space-gray;
+    }
+
+    .title {
+        margin: 10px 0 0;
+        transition: 0.3s ease;
+    }
+
+    .desc {
+        margin: 10px 0 0;
+        line-height: 1.2;
+        height: 50px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        position: absolute;
+        left: 0;
+        padding: inherit;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &:hover {
+        .imgWrapper::after {
+            opacity: 0.05;
+        }
+
+        .title {
+            color: $www-primary;
+        }
+    }
+}
+
+/**********************************
+    @Media queries
+**********************************/
+@include viewport(mobile) {
+    .card {
+        .content {
+            padding: 20px 0;
+        }
+    }
+}
+
+@include viewport(tablet) {
+    .hover:hover {
+        .content {
+            transform: translateY(calc(-50px - 20px));
+        }
+
+        .desc {
+            opacity: 1;
+        }
+    }
+}

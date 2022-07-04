@@ -1,0 +1,104 @@
+@import '~shared/styles/config';
+
+.advantages {
+    margin-top: 140px;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        @include viewport(xs) {
+            text-align: left;
+        }
+
+        .col {
+            @include font-regular();
+            opacity: 0;
+
+            &.show {
+                @for $i from 0 through 3 {
+                    $delay: calc(0 + $i/4);
+                    $delayInSeconds: $delay + s;
+
+                    &.order#{$i} {
+                        // animation: slideUp 1.5s;
+                        animation: slideUp 1s;
+                        animation-delay: $delayInSeconds;
+                        animation-fill-mode: forwards;
+                    }
+                }
+            }
+
+            display: flex;
+            // justify-content: center;
+            flex-direction: column;
+            padding-right: 40px;
+
+            @include viewport(mobileMax) {
+                flex-direction: row;
+                // flex-wrap: inherit;
+                margin-bottom: 30px;
+            }
+
+            svg {
+                align-self: flex-start;
+                font-size: 75px;
+
+                @include viewport(xs) {
+                    font-size: 95px;
+                }
+
+                color: #be9b0d;
+            }
+
+            h2 {
+                @include font-medium();
+                margin-top: 30px;
+                font-size: 20px;
+
+                @include viewport(xs) {
+                    font-size: 18px;
+                }
+
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+
+                em {
+                    display: block;
+                    font-style: normal;
+                }
+            }
+
+            p {
+                @include font-light();
+                font-size: 16px;
+
+                @include viewport(xs) {
+                    font-size: 20px;
+                }
+
+                line-height: 1.2;
+                align-self: center;
+
+                span {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        opacity: 1;
+    }
+}
+

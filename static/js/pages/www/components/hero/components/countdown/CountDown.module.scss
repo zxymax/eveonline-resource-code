@@ -1,0 +1,23 @@
+@import '~shared/styles/config';
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap&text=0123456789:');
+
+.countdown {
+    .timer {
+        color: $www-primary;
+        font-size: 22px;
+        font-family: 'ZCOOL QingKe HuangYou', 'Shentox', 'Rogan', sans-serif;
+        margin-top: 5px;
+        letter-spacing: 0.05em;
+    }
+
+    @keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}
+

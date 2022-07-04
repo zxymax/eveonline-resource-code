@@ -1,0 +1,129 @@
+@import '../../ArticlesShared';
+
+/********************************************
+/Articles
+********************************************/
+
+.articles_home {
+    background-image: url('//web.ccpgamescdn.com/aws/eveonline/images/backgrounds/stars.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+
+    .article_heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        h2 {
+            font-size: 22px;
+
+            @include viewport(tablet) {
+                font-size: 26px;
+            }
+        }
+
+        .read_more {
+            text-transform: uppercase;
+            font-size: 12px;
+
+            @include viewport(tablet) {
+                font-size: 14px;
+            }
+
+            margin: 0;
+            @include font-regular();
+        }
+    }
+
+    .border {
+        margin-bottom: 0;
+    }
+
+    .articles_news {
+        .featured_content {
+            img {
+                margin-bottom: 30px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .featured_content {
+                margin-top: 40px;
+
+                p {
+                    font-size: 18px;
+                    margin: 0;
+                }
+            }
+        }
+
+        .article_item {
+            border-bottom: 1px solid rgba(#979797, 0.3);
+            margin-bottom: 22px;
+            padding-bottom: 8px;
+        }
+    }
+
+    .articles_dev {
+        padding-top: 80px;
+
+        img {
+            margin-bottom: 20px;
+        }
+    }
+
+    .articles_sidebar {
+        overflow: hidden;
+        margin-bottom: 60px;
+
+        .border {
+            margin-bottom: 0;
+        }
+
+        .content {
+            background: #1e2c37;
+            padding: 10px;
+        }
+
+        .row {
+            padding: 10px;
+            background-color: #1e2c37;
+        }
+
+        .sidebar_content {
+            padding: 8px;
+            padding-bottom: 16px;
+        }
+
+        .img_container {
+            position: relative;
+
+            .play_btn {
+                position: absolute;
+                top: 30%;
+                left: 42%;
+            }
+
+            .play {
+                width: 50px;
+            }
+        }
+    }
+
+    .articles_ad {
+        margin-bottom: 30px;
+
+        .row {
+            margin-top: 10px;
+        }
+    }
+
+    h3 {
+        font-size: 18px;
+        margin-top: 4px;
+        margin-bottom: 14px;
+        @include font-regular();
+    }
+}

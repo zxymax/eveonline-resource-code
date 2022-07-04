@@ -1,0 +1,229 @@
+@import '~shared/styles/config';
+
+.comparison {
+    min-height: 900px;
+    background-image: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/omegaalpha-bg2.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    // margin: 80px 0;
+    @include viewport(mobileMax) {
+        padding-top: 40px;
+    }
+
+    .upgrade {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        // display: inline-block;
+        margin: 40px 0;
+
+        .omega_btn {
+            @include viewport(mobileMax) {
+                width: 100%;
+            }
+        }
+
+        a {
+            font-size: 20px;
+            @include font-semibold();
+        }
+    }
+
+    padding: 200px 0 100px;
+
+    .cell {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        opacity: 0;
+        margin-bottom: 60px;
+
+        // Omega styles
+        &.omega {
+            .body {
+                color: #fff;
+
+                li {
+                    &::before {
+                        background-image: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/omega-circle.png');
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+
+            @include viewport(mobileMax) {
+                margin-top: 20px;
+            }
+        }
+
+        &.show {
+            animation: slideLeft 1s;
+            animation-delay: 0.5s;
+            animation-fill-mode: forwards;
+
+            &.omega {
+                animation: slideRight 1s;
+                animation-delay: 1s;
+                animation-fill-mode: forwards;
+            }
+        }
+
+        .header {
+            background: rgba(16, 16, 16, 0.85);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 30px 27px 25px;
+
+            @include viewport(mobileMax) {
+                padding: 30px 15px 25px;
+            }
+
+            position: relative;
+
+            svg {
+                @include viewport(tabletmin) {
+                    min-width: 80px;
+                }
+            }
+
+            &::after {
+                border-bottom: 1px solid rgba(140, 140, 140, 0.21);
+                content: '';
+                width: 92%;
+                left: 20px;
+                height: 2px;
+                position: absolute;
+                bottom: -5px;
+                z-index: 1;
+
+                @include viewport(mdMax) {
+                    width: 91%;
+                }
+
+                @include viewport(mobileMax) {
+                    width: 90%;
+                }
+            }
+
+            .priceFrom {
+                background-color: #fc0;
+                transform: skew(-15deg);
+                position: absolute;
+                bottom: -20px;
+                right: 30px;
+                padding: 2px 10px;
+                z-index: 2;
+
+                p {
+                    @include font-medium();
+                    padding: 2px;
+                    font-size: 16px;
+                    margin: 2px;
+                    transform: skew(10deg);
+                    color: #202020;
+                    text-transform: uppercase;
+                }
+            }
+
+            .content {
+                align-items: center;
+                margin: 0;
+                padding-left: 20px;
+
+                h4,
+                h5 {
+                    @include font-regular();
+                    font-size: 24px;
+                    text-transform: uppercase;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                h5 {
+                    // @include font-light();
+
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+            }
+        }
+
+        .body {
+            background: rgba(16, 16, 16, 0.85);
+            color: #8d8d8d;
+            padding: 5px 52px;
+            font-size: 18px;
+
+            @include viewport(mobileMax) {
+                padding: 10px;
+            }
+
+            @include font-light();
+
+            ul {
+                @include reset-list();
+
+                @include viewport(mobileMax) {
+                    padding-left: 12px;
+                }
+
+                li {
+                    margin: 27px 0;
+                    position: relative;
+                    padding-left: 75px;
+                    display: flex;
+                    align-items: center;
+
+                    @include viewport(mobileMax) {
+                        padding-left: 55px;
+                        padding-right: 10px;
+                    }
+
+                    // line-height: 33px;
+
+                    &::before {
+                        content: '';
+                        background-image: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/alpha-circle.png');
+                        background-repeat: no-repeat;
+                        width: 33px;
+                        height: 33px;
+                        position: absolute;
+                        left: 0;
+                        // top: 0;
+
+                        @include viewport(mobileMax) {
+                            left: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        -webkit-transform: translateX(30px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        -webkit-transform: translateX(-30px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        opacity: 1;
+    }
+}
+

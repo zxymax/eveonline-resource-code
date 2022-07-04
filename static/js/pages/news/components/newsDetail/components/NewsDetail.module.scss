@@ -1,0 +1,330 @@
+@import '~shared/styles/config';
+
+:root {
+    --news-social-color: #c0c0c0;
+}
+
+.newsDetail {
+    position: relative;
+
+    .grid {
+        padding: 80px 0 40px 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 60px;
+
+        @include viewport(desktop) {
+            grid-column-gap: 0;
+            padding: 150px 0 40px 0;
+        }
+
+        @include viewport(tablet) {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .title {
+            margin-top: 20px;
+        }
+
+        .sidebar {
+            display: grid;
+            grid-template-rows: max-content;
+            grid-gap: 40px;
+            margin-top: 10px;
+            align-self: flex-start;
+            margin-bottom: 40px;
+
+            > div:first-child {
+                display: none;
+
+                @include viewport(tablet) {
+                    display: inline-flex;
+                }
+            }
+        }
+    }
+
+    .img, .video {
+        // box-shadow: #000000db 0 0 20px 5px;
+
+        @include viewport(desktop) {
+            margin-left: -50px;
+            margin-right: 50px;
+        }
+    }
+
+    .content {
+        --paragraph-size: 18px;
+        --heading-size: 26px;
+
+        padding: 30px 0;
+
+        @include viewport(tablet) {
+            padding: 30px 60px 30px 0;
+        }
+
+        @include viewport(mobile) {
+            --paragraph-size: 22px;
+            --heading-size: 26px;
+        }
+
+        font-weight: $font-regular;
+        color: #f5f5f5;
+
+        // Typography
+        h2,
+        h3,
+        h4 {
+            font-weight: $font-medium;
+        }
+
+        h2 {
+            font-size: var(--heading-size);
+        }
+
+        h3 {
+            font-size: var(--paragraph-size);
+        }
+
+        h4 {
+            font-size: var(--heading-size);
+            color: $www-silver-gray;
+            margin: 20px 0 0;
+        }
+
+        // a {
+        //     color: $www-primary;
+        //     transition: 0.2s ease-in-out;
+        //     font-size: var(--paragraph-size);
+
+        //     &:hover {
+        //         color: lighten($www-primary, 10%);
+        //     }
+        // }
+
+        strong {
+            font-weight: $font-medium;
+        }
+
+        b {
+            font-weight: $font-semibold;
+        }
+
+        ul {
+            list-style-type: square;
+
+            @include viewport(mobileMax) {
+                padding-left: 20px;
+            }
+
+            li {
+                font-size: var(--paragraph-size);
+                margin-top: 5px;
+
+                li {
+                    font-size: calc(var(--paragraph-size) - 2px);
+                }
+            }
+        }
+
+        blockquote {
+            background: $www-space-gray;
+            margin: 40px 0;
+            padding: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='49' viewBox='0 0 60 49' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26.686 6.152c-2.754 1.582-4.98 2.96-6.68 4.131-1.7 1.114-3.428 2.608-5.186 4.483-1.64 1.757-2.9 3.603-3.779 5.537-.879 1.933-1.494 4.424-1.846 7.47h4.22c3.632 0 6.474.909 8.524 2.725 2.11 1.758 3.165 4.365 3.165 7.822 0 2.461-.938 4.776-2.813 6.944-1.816 2.109-4.336 3.164-7.559 3.164-5.039 0-8.642-1.64-10.81-4.922C1.754 40.166.67 35.8.67 30.41c0-3.808.82-7.265 2.46-10.37 1.641-3.165 3.634-5.977 5.977-8.438 2.403-2.52 4.952-4.659 7.647-6.416A295.202 295.202 0 0123.52.879l3.165 5.273zm32.52 0c-2.755 1.582-4.981 2.96-6.68 4.131-1.7 1.114-3.428 2.608-5.186 4.483-1.7 1.816-2.988 3.691-3.867 5.625-.82 1.875-1.407 4.336-1.758 7.382h4.219c3.632 0 6.474.909 8.525 2.725 2.11 1.758 3.164 4.365 3.164 7.822 0 2.461-.938 4.776-2.813 6.944-1.816 2.109-4.335 3.164-7.558 3.164-5.04 0-8.643-1.64-10.81-4.922-2.169-3.34-3.252-7.705-3.252-13.096 0-3.808.82-7.265 2.46-10.37 1.641-3.165 3.633-5.977 5.977-8.438 2.402-2.52 4.951-4.659 7.646-6.416A295.422 295.422 0 0156.041.879l3.164 5.273z' fill='%23777'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 95% 50%;
+
+            @include viewport(tablet) {
+                padding: 30px;
+            }
+
+            h2 {
+                margin: 0;
+                margin-bottom: 10px;
+            }
+
+            p {
+                margin: 0;
+                max-width: 85%;
+            }
+        }
+
+        /*****************************************
+            Table styles
+        *****************************************/
+        .table {
+            overflow-x: auto;
+        }
+
+        table {
+            margin: 40px 0;
+            border-spacing: 2px;
+            width: 100%;
+
+            thead {
+                tr:hover {
+                    background: none;
+                }
+
+                th {
+                    font-weight: $font-semibold;
+                    background-color: $www-space-gray;
+                }
+            }
+
+            td,
+            th {
+                background-color: $www-night-black;
+                padding: 5px;
+
+                @include viewport(mobile) {
+                    padding: 20px;
+                }
+
+                text-align: left;
+            }
+
+            tr:hover {
+                background-color: #2d3339;
+            }
+        }
+
+        /*****************************************
+            Table styles end
+        *****************************************/
+
+        :global {
+            a:not(.cta) {
+                color: $www-primary;
+                transition: 0.2s ease-in-out;
+
+                &:hover {
+                    color: lighten($www-primary, 10%);
+                }
+            }
+
+            .cta {
+                @include buttonBase;
+
+                font-size: 15px;
+
+                &--transparent {
+                    @include buttonTransparent;
+                }
+
+                &--quadrant {
+                    background: $www-theme-button-primary;
+                    color: $www-theme-button-text;
+                }
+
+                &--omega {
+                    background: $www-omega;
+                    color: #101010;
+                }
+            }
+
+            .status {
+                display: inline-block;
+                background: $www-night-black;
+                padding: 0 4px;
+                font-size: 14px;
+                font-weight: $font-semibold;
+                text-transform: uppercase;
+                vertical-align: middle;
+                margin-left: 5px;
+
+                &--new {
+                    background: $www-arisite-green;
+                }
+
+                &--removed {
+                    background: $www-blood-red;
+                }
+
+                &--updated {
+                    background: $www-thermal-orange;
+                }
+            }
+        }
+    }
+
+    .authAndShare {
+        margin: 20px 0 30px;
+        display: grid;
+        justify-content: flex-start;
+        align-content: flex-start;
+        grid-gap: 10px 1px;
+        align-items: center;
+
+        @include viewport(mobile) {
+            grid-template-columns: auto auto auto;
+        }
+
+        > span {
+            margin-right: 10px;
+        }
+    }
+
+    .tags {
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+
+        ul,
+        li {
+            @include reset-list;
+
+            display: inline-block;
+        }
+
+        li {
+            padding: 0 4px;
+
+            a {
+                background-color: #fff;
+                border-radius: 10px;
+                padding: 5px 10px 5px 10px;
+                font-size: 13px;
+                color: #00aeff;
+            }
+        }
+    }
+
+    .newsBackground {
+        padding: 100px 0;
+        position: relative;
+        background-blend-mode: overlay;
+        height: 44vw;
+        max-height: 850px;
+
+        // Top gradient
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            left: 0;
+            height: 50%;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.5) 15%,
+                rgba(0, 0, 0, 0) 100%
+            );
+            pointer-events: none;
+        }
+
+        // Stars in bottom of hero area (use when image does not contain stars)
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: 0;
+        //     width: 100%;
+        //     height: 197px;
+        //     background-image: url('//web.ccpgamescdn.com/aws/eveonline/images/transparency-transition.png');
+        //     background-repeat: repeat-x;
+        //     pointer-events: none;
+        // }
+    }
+}
+

@@ -1,0 +1,57 @@
+@import '~shared/styles/config';
+
+.eveInfo {
+    margin: 50px 0;
+
+    .content {
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: 1fr;
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .image {
+            grid-column: 1;
+        }
+    }
+}
+
+/**********************************
+    Media queries
+**********************************/
+@include viewport(tablet) {
+    .eveInfo {
+        padding: 70px 0;
+
+        .content {
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            grid-gap: 30px;
+
+            .image {
+                grid-column: 2;
+                margin-right: calc(-100vw / 2 + 1290px / 2);
+            }
+
+            .text {
+                margin-right: 60px;
+            }
+
+            &.reverse {
+                .text {
+                    grid-column: 2;
+                }
+
+                .image {
+                    grid-row: 1;
+                    grid-column: 1;
+                    margin-right: unset;
+                    margin-left: calc(-100vw / 2 + 1290px / 2);
+                }
+            }
+        }
+    }
+}
+

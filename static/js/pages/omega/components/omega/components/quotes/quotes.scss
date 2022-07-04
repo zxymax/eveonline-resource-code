@@ -1,0 +1,136 @@
+@import '~shared/styles/config';
+
+.quotes {
+    @import '~shared/styles/carousel';
+
+    height: 1080px;
+    background: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/omega_bottom2.jpg')
+        no-repeat 50% 50%;
+    background-size: cover;
+    padding-top: 200px;
+    font-size: 24px;
+
+    @include viewport(mobileMax) {
+        padding: 0;
+        height: auto;
+        margin: 0 -15px;
+        font-size: 18px;
+        background: none;
+    }
+
+    .mobileDeco {
+        display: none;
+
+        @include viewport(mobileMax) {
+            display: block;
+        }
+    }
+
+    .rollingText {
+        background: #202b49;
+        width: 810px;
+        padding: 30px 50px;
+        transform: skew(-10deg);
+
+        @include viewport(mdMax) {
+            width: 810px;
+            margin: 0 auto;
+        }
+
+        @include viewport(mdMax) {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        @include viewport(mobileMax) {
+            width: 100%;
+            height: auto;
+            transform: none;
+            padding: 30px 10px;
+        }
+
+        .content {
+            transform: skew(10deg);
+            // max-width: 550px;
+            padding: 0 30px;
+            text-align: left;
+            @include font-light();
+
+            @include viewport(mobileMax) {
+                transform: none;
+                padding: 0;
+            }
+        }
+    }
+
+    /* stylelint-disable-next-line */
+    :global {
+        .slick-list {
+            padding: 25px 0;
+            margin: 0 40px;
+        }
+
+        .slick-slide > div {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .slick-next,
+        .slick-prev {
+            display: inline-block;
+
+            @include viewport(mobileMax) {
+                display: none;
+            }
+
+            top: calc(50% - 35px);
+
+            svg {
+                font-size: 45px;
+                transition: 0.2s ease-in-out;
+            }
+
+            &:hover {
+                svg {
+                    color: $brand-yellow;
+                }
+            }
+        }
+
+        .slick-dots {
+            text-align: right;
+            visibility: hidden;
+
+            @include viewport(mobileMax) {
+                visibility: visible;
+            }
+
+            li {
+                margin: 0 2px;
+
+                button {
+                    padding: 10px;
+
+                    &:hover {
+                        &::before {
+                            background-color: #927f35;
+                        }
+                    }
+                }
+
+                button::before {
+                    font-size: 16px;
+                    background-color: #646871;
+                    opacity: 1;
+                }
+            }
+
+            li.slick-active {
+                button::before {
+                    background-color: #fc0;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,15 @@
+@import '~shared/styles/config';
+
+.wrapper {
+    width: 100%;
+    max-width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+@include viewport(mobile) {
+    .wrapper {
+        padding: 0;
+    }
+}

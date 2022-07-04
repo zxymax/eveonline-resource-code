@@ -1,0 +1,37 @@
+@import '~shared/styles/config';
+
+.anywhere {
+    padding: 100px 0;
+
+    @include viewport(mobile) {
+        padding: 250px 0;
+    }
+
+    .loading {
+        h2 {
+            margin-bottom: 50px;
+        }
+
+        .dots {
+            margin: 80px 0;
+        }
+    }
+
+    /**
+        Comment out display: grid; for now -- some issues with the SDK
+    display: grid;
+    justify-content: center;
+    **/
+
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90vh;
+    }
+
+    @include viewport(desktop) {
+        min-height: 1080px;
+    }
+}

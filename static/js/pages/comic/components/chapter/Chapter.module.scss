@@ -1,0 +1,22 @@
+@import '~shared/styles/config';
+
+.chapter {
+    padding: 40px 0;
+
+    .title {
+        margin: 0;
+    }
+
+    .content {
+        margin-bottom: 50px;
+    }
+
+    @include viewport(mobile) {
+        .content {
+            display: grid;
+            grid-template-columns: 4fr 2fr;
+            grid-gap: 60px;
+            align-items: center;
+        }
+    }
+}

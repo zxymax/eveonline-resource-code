@@ -1,0 +1,37 @@
+@import '~shared/styles/config';
+
+.cta {
+    text-align: center;
+
+    .text {
+        display: grid;
+        grid-gap: 15px;
+    }
+
+    > div {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    h2,
+    h3 {
+        margin: 0;
+    }
+
+    .content {
+        margin-top: 40px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
+
+@include viewport(mobileMax) {
+    .cta {
+        h2 {
+            font-size: 28px !important;
+        }
+    }
+}

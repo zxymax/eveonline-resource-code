@@ -1,0 +1,20 @@
+@import '~shared/styles/config';
+
+.patchNotes {
+    text-align: right;
+    font-size: 15px;
+    font-weight: $font-regular;
+    margin-bottom: 10px;
+
+    a {
+        transition: all 0.25s;
+
+        &:hover {
+            color: $brand-higlight;
+        }
+    }
+
+    @include viewport(tabletmax) {
+        margin: 20px 0 30px;
+    }
+}

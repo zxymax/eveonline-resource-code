@@ -1,0 +1,75 @@
+@import '~shared/styles/config';
+
+.container {
+    // padding: 95px 0;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+    @include viewport(desktop) {
+        top: -100px;
+    }
+
+    @media only screen and (max-width: 1630px) {
+        margin: 0 15px;
+        padding: 15px 0;
+    }
+
+    @media only screen and (max-width: $max-1024) {
+        padding: 0;
+        margin: 0;
+    }
+
+    .link::after {
+        content: '';
+
+        @include fit;
+    }
+}
+
+.banner {
+    display: flex;
+    position: relative;
+    padding: 0;
+    justify-content: center;
+    width: auto;
+    align-items: center;
+    background-size: cover;
+    background-position: right;
+    height: 435px;
+    transition: filter 0.2s ease-in-out;
+
+    @include cut-img-shape;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+
+    @media only screen and (max-width: $max-1200) {
+        height: 27vw;
+    }
+
+    @media only screen and (max-width: $max-1024) {
+        height: 250px;
+        background-position: left;
+    }
+
+    .inner {
+        margin: 0;
+        margin-left: 70px;
+        width: 100%;
+
+        @media only screen and (max-width: $max-1200) {
+            margin-left: 30px;
+        }
+
+        h2 {
+            line-height: 1.2;
+        }
+
+        h3 {
+            margin: 0;
+        }
+    }
+}

@@ -1,0 +1,208 @@
+
+@import '~shared/styles/config';
+
+
+
+
+.card {
+    position: absolute;
+    width: 33.33%;
+    -webkit-transition: height 0.3s; /* Safari */
+    overflow: hidden;
+    display: block;
+    padding-right: 30px;
+    opacity: 0;
+
+    &.active {
+        transition: all 0.3s ease-in-out;
+        -webkit-transform: translateY(-80px);
+        opacity: 1;
+    }
+
+    .shade {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.9));
+        opacity: 1;
+        position: absolute;
+        width: 100%;
+        z-index: 10;
+        transition: opacity 0.2s ease-in;
+    }
+
+    @include viewport (desktopMax) {
+        width: 50%;
+        display: block;
+        float: left;
+        height: 300px !important;
+        left: unset !important;
+        position: initial !important;
+        margin-top: 0 !important;
+        padding: 10px;
+    }
+
+    @include viewport (mobileMax) {
+        width: 100%;
+        padding: 0 40px;
+    }
+
+    &:hover {
+        .flippable {
+            .info {
+                opacity: 0.2;
+            }
+
+            .backside {
+                opacity: 1;
+            }
+        }
+
+        .shade {
+            opacity: 0.7;
+        }
+    }
+
+    .flippable.inner {
+        .content {
+            width: 100%;
+
+            h4 {
+                font-size: 26px;
+                text-align: center;
+            }
+        }
+    }
+
+    .inner {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        transform-origin: 50% 50%;
+
+        @include viewport (desktopMax) {
+            height: 300px !important;
+        }
+
+        .background {
+            z-index: 0;
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+
+            img {
+                max-width: unset;
+                min-height: 101%;
+                min-width: 101%;
+            }
+        }
+
+        .info {
+            backface-visibility: hidden;
+            z-index: 1;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: flex-end;
+            text-align: left;
+            padding-bottom: 20px;
+
+            .content {
+                padding: 0 30px;
+
+                > div {
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    margin: 0;
+
+                    @include viewport (mdMax) {
+                        font-size: 2vw;
+                    }
+
+                    @include viewport (mobileMax) {
+                        font-size: 3vw;
+                    }
+                }
+
+                h1 {
+                    text-transform: uppercase;
+                    @include font-semibold();
+                    font-size: 26px;
+
+                    @include viewport (desktopMax) {
+                        font-size: 2.5vw;
+                    }
+
+                    @include viewport (mdMax) {
+                        font-size: 2.5vw;
+                    }
+
+                    @include viewport (mobileMax) {
+                        font-size: 3.5vw;
+                    }
+                }
+
+                h4 {
+                    text-transform: uppercase;
+                    margin-top: 0;
+                    @include font-semibold();
+                    margin-bottom: 5px;
+                }
+
+                strong {
+                    text-transform: uppercase;
+                    font-size: 26px;
+                    font-weight: 300;
+
+                    @include viewport (desktopMax) {
+                        font-size: 2.5vw;
+                    }
+
+                    @include viewport (mdMax) {
+                        font-size: 2.5vw;
+                    }
+
+                    @include viewport (mobileMax) {
+                        font-size: 3.5vw;
+                    }
+                }
+
+                blockquote {
+                    text-align: center;
+
+                    img {
+                        margin: 20px auto 0;
+                        margin-top: 20px;
+                        max-width: 200px;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .backside {
+            transform-origin: 50% 50%;
+            // transform: rotateX(180deg);
+            opacity: 0;
+            transition-duration: 0.5s;
+            transition-property: opacity;
+
+            .content {
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+
+        @keyframes cardAnimation {
+            0% {
+                -webkit-transform: translateY(30px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+}

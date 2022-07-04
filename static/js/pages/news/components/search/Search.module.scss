@@ -1,0 +1,60 @@
+@import '~shared/styles/config';
+
+.search {
+    position: relative;
+
+    form,
+    input {
+        width: 100%;
+    }
+
+    input {
+        @include reset-button;
+
+        color: white;
+        border: none;
+        padding: 5px 10px 5px 15px;
+        background: $www-space-gray;
+        border-radius: 24px;
+        padding-right: 30px;
+        border: 1px solid transparent;
+        font-size: 15px;
+        transition: background 0.3s ease;
+
+        &:focus {
+            background: #353e42;
+        }
+    }
+
+    svg {
+        color: $www-silver-gray;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    button {
+        @include reset-button;
+
+        &:hover {
+            cursor: pointer;
+
+            svg {
+                color: #fff;
+            }
+        }
+    }
+}
+
+@include viewport(desktop) {
+    .search {
+        min-width: 260px;
+    }
+}
+
+@include viewport(tabletmax) {
+    .search {
+        width: 100%;
+    }
+}

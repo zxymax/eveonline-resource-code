@@ -1,0 +1,262 @@
+@import '~shared/styles/config';
+
+.omega {
+    text-align: center;
+    background: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/stars-bg.jpg') repeat top center;
+    color: #fff;
+    position: relative;
+
+    .content {
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .advantagesDeco {
+        position: absolute;
+        width: 725px;
+        height: 600px;
+        right: 0;
+        top: 1585px;
+        background: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/omega_smallship.png') no-repeat;
+        display: block;
+        opacity: 1;
+        transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.3, 1);
+
+        @include viewport(xlargeDesktopMax) {
+            opacity: 0;
+        }
+    }
+
+    .hero {
+        background-image: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/omegacover2.jpg');
+
+        @include viewport(tablet) {
+            background-image: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/omegacover2.jpg');
+        }
+
+        background-size: cover;
+        padding-top: 294px;
+        position: relative;
+        padding-bottom: 90px;
+        min-height: 940px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background-image: linear-gradient(0deg, #000, transparent);
+        }
+
+        @include viewport(mobileMax) {
+            padding-top: 150px;
+            min-height: auto;
+        }
+
+        .heroSvgIcon {
+            margin: 0 auto;
+
+            @include viewport(mobileMax) {
+                width: 165px;
+            }
+        }
+
+        .text {
+            margin-top: 35px;
+
+            h1 {
+                font-size: 44px;
+                line-height: 1.2;
+                letter-spacing: 0.05em;
+                margin-bottom: 15px;
+                @include font-semibold();
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            p {
+                width: 100%;
+                max-width: 775px;
+                letter-spacing: 0.05em;
+                margin: 0 auto;
+                margin-top: 40px;
+                margin-bottom: 50px;
+                font-size: 24px;
+                @include font-light();
+            }
+        }
+    }
+
+    .upgrade {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        margin: 40px 0;
+
+        a {
+            margin-top: 10px;
+        }
+    }
+
+    .border {
+        width: 100%;
+        height: 1px;
+        background: #2d363d;
+        margin: 50px 0;
+    }
+
+    // .close {
+    //     position: absolute;
+    //     top: 20px;
+    //     right: 20px;
+    //     z-index: 1;
+    //     opacity: 0.7;
+    //     transition: 0.2s ease-in-out;
+    //     font-size: 36px;
+    //     cursor: pointer;
+
+    //     &:hover {
+    //         opacity: 1;
+    //     }
+    // }
+
+    // .player {
+    //     @include fit;
+    // }
+
+    // .wrapper {
+    //     overflow: hidden;
+    //     position: relative;
+    //     margin-top: 20px;
+    //     // box-shadow: 0 0 5px 1px rgba(111, 111, 111, 0.75);
+    //     outline: 1px solid rgba(140, 140, 140, 0.21);
+    //     filter: brightness(1.3);
+
+    //     .image {
+    //         width: 100%;
+    //         cursor: pointer;
+    //         position: relative;
+    //         transition: 0.2s ease-in-out;
+    //     }
+
+    //     .icon {
+    //         @include centerer;
+
+    //         transition: 0.2s ease-in-out;
+    //         cursor: pointer;
+    //     }
+    // }
+
+    .omega_text {
+        p {
+            font-size: 18px;
+            text-align: left;
+            width: 100%;
+            max-width: 850px;
+            margin: 30px auto;
+            @include font-light();
+        }
+
+        a {
+            color: $brand-higlight;
+            transition: 0.2s ease-in-out;
+            @include font-regular();
+
+            &:hover {
+                color: $brand-light;
+            }
+        }
+    }
+}
+
+@include viewport(desktop) {
+    .omega {
+        padding-top: 0;
+        position: relative;
+
+        .content {
+            .text {
+                h1 {
+                    font-size: 60px;
+                    line-height: 1;
+                }
+
+                p {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+@include viewport(tablet) {
+    .omega {
+        padding-top: 0;
+
+        .omega_text {
+            margin-top: 60px;
+        }
+
+        .upgrade {
+            flex-direction: row;
+
+            a {
+                margin: 0 15px;
+            }
+        }
+
+        .wrapper {
+            &:hover {
+                .image {
+                    filter: brightness(1.2);
+                }
+
+                .icon {
+                    transform: translate(-50%, -50%) scale(1.2);
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        -webkit-transform: translateX(30px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        -webkit-transform: translateX(-30px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        opacity: 1;
+    }
+}

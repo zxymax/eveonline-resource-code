@@ -1,0 +1,74 @@
+@import '~shared/styles/config';
+
+/********************************************
+Shared Article Styles
+********************************************/
+
+.articles {
+    min-height: 100vh;
+    background-color: $brand-dark;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 90px;
+    padding-bottom: 100px;
+
+    @include viewport(desktop) {
+        padding-top: 200px;
+    }
+
+    h2 {
+        line-height: 1;
+        font-size: 26px;
+        padding-bottom: 2px;
+    }
+
+    h3 {
+        line-height: 30px;
+    }
+
+    a {
+        .article_title {
+            transition: color ease-in-out 0.15s;
+        }
+
+        &:hover {
+            .article_title {
+                color: $brand-higlight;
+            }
+        }
+
+        .read_more {
+            color: white;
+
+            &:hover {
+                color: white;
+
+                .arrow {
+                    color: $brand-higlight;
+                }
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+
+    p {
+        font-size: 18px;
+        margin-top: 0;
+    }
+
+    .author_date {
+        text-transform: uppercase;
+        color: #979797;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+    }
+
+    .arrow {
+        color: $gray-500;
+        margin-left: 8px;
+    }
+}

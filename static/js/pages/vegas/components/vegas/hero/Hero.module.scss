@@ -1,0 +1,60 @@
+@import '~shared/styles/config';
+
+.content {
+    text-align: center;
+    // height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .inner {
+        padding-top: 250px;
+        padding-bottom: 75px;
+
+        @media only screen and (max-width: $max-768) {
+            padding-top: 125px;
+        }
+    }
+
+    .logo {
+        height: 150px; // 165px on 1080px viewport
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    h1 {
+        strong {
+            @include font-medium();
+            color: $www-thermal-orange;
+        }
+    }
+
+    h2 {
+        margin: 20px 0;
+    }
+
+    .cta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        margin: 50px 0;
+
+        // .btn a {
+        //     min-width: 160px;
+        //     background: $www-thermal-orange;
+        //     color: #202020;
+        //     letter-spacing: 0;
+        //     height: 50px;
+        //     margin-right: 10px;
+
+        //     @include font-semibold;
+
+        //     &:hover span {
+        //         color: #fff;
+        //     }
+        // }
+    }
+}
+

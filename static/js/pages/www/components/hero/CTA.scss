@@ -1,0 +1,128 @@
+@import '~shared/styles/config';
+
+/**********************************
+Button animation
+**********************************/
+.btn {
+    position: relative;
+    animation: transparency 0.4s;
+    animation-delay: 1.3s;
+    animation-fill-mode: backwards;
+    animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+    span {
+        opacity: 0;
+        animation: opacity 0.3s;
+        animation-delay: 1.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+    }
+
+    &::before {
+        animation: transform 0.7s;
+    }
+
+    &:nth-of-type(1)::before {
+        animation-delay: 2.7s;
+    }
+
+    &:nth-of-type(2)::before {
+        animation-delay: 2.9s;
+    }
+
+    &::after {
+        content: '';
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        background: transparent;
+        opacity: 0;
+        animation: opacity 0.8s, height 0.8s;
+        animation-delay: 0.8s, 1s;
+        animation-fill-mode: backwards, forwards;
+    }
+
+    &:nth-of-type(1)::after {
+        border: 2px solid $www-primary;
+        border-width: 2px 0;
+    }
+
+    &:nth-of-type(2)::after {
+        border: 2px solid $www-bright-white;
+        border-width: 2px 0;
+    }
+
+    // Pause animation on hover
+    &:hover::before {
+        animation-play-state: paused;
+    }
+}
+
+// Color Theme
+.colorTheme .btn {
+    &:nth-of-type(1)::after {
+        border: 2px solid $www-theme-button-primary;
+        border-width: 2px 0;
+    }
+
+    &:nth-of-type(2)::after {
+        border: 2px solid $www-theme-button-secondary;
+        border-width: 2px 0;
+    }
+}
+
+/**********************************
+@Keyframes
+**********************************/
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes transparency {
+    0% {
+        background: transparent;
+        visibility: hidden;
+    }
+}
+
+@keyframes height {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes transform {
+    0%, 100% {
+        @include fit;
+
+        content: '';
+        visibility: visible;
+        display: block;
+        opacity: 0;
+        transform: rotate(45deg);
+        transform-origin: 50%;
+    }
+
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+        opacity: 1;
+    }
+
+    99% {
+        transform: translateX(100%) rotate(45deg);
+        opacity: 1;
+    }
+}

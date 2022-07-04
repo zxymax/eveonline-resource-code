@@ -1,0 +1,69 @@
+@import '~shared/styles/config';
+
+.hero {
+    display: grid;
+    align-content: center;
+    max-width: 1290px;
+    margin: 0 auto;
+
+    .content {
+        display: grid;
+        grid-gap: 20px;
+        padding: 30px;
+        text-align: center;
+    }
+
+    h2 {
+        color: var(--dlp-headline-color);
+    }
+
+    .date {
+        text-transform: uppercase;
+        font-size: 20px;
+        color: $www-silver-gray;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .cta {
+        margin-top: 10px;
+        min-height: auto;
+    }
+
+    /**********************************
+        @Media queries
+    **********************************/
+    @include viewport(mobile) {
+        grid-template-columns: 1fr 1fr;
+        padding-bottom: 40px;
+
+        .content {
+            grid-column: 2;
+            background-color: var(--dlp-card-bg);
+            text-align: left;
+
+            @include box('default', 1, 0, 0, 0);
+        }
+
+        .cta {
+            justify-content: flex-start;
+        }
+    }
+
+    @include viewport(tablet) {
+        height: 28vw;
+        min-height: 600px;
+    }
+
+    @include viewport(desktop) {
+        .content {
+            padding: 40px;
+        }
+
+        .date {
+            margin-top: -10px;
+        }
+    }
+}

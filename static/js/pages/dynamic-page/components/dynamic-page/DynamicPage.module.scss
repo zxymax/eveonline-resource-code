@@ -1,0 +1,191 @@
+@import '~shared/styles/config';
+
+.page {
+    --dlp-font-size: 1.2rem;
+
+    background-image: url('https://webimg.ccpgamescdn.com/7lhcm73ukv5p/1mv6Tg8PUsMWyGauWckSOo/5be5f00d5fb6d445f420b7a1c669fd26/star-bg.jpg');
+    background-color: #000;
+    background-repeat: repeat;
+    // background-attachment: fixed;
+    background-size: auto;
+    padding: 180px 70px 0;
+    position: relative;
+
+    p {
+        font-size: var(--dlp-font-size);
+        line-height: 1.6;
+    }
+
+    ul {
+        list-style: square;
+
+        @include viewport(mobileMax) {
+            padding-left: 20px;
+        }
+
+        li {
+            font-size: var(--dlp-font-size);
+            margin-top: 3px;
+            font-weight: $font-regular;
+
+            &::marker {
+                color: var(--dlp-link-color);
+            }
+        }
+    }
+
+    .logo {
+        margin-top: 60px;
+        position: absolute;
+        top: 0;
+
+        @include viewport(mobileMax) {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .language {
+        position: absolute;
+        top: 0;
+        right: 70px;
+        margin-top: 70px;
+
+        @include viewport(tabletmax) {
+            display: none;
+        }
+    }
+
+    .bg {
+        position: absolute;
+        // Stars in bottom of hero area (use when image does not contain stars)
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 197px;
+            background-image: url(//web.ccpgamescdn.com/aws/eveonline/images/transparency-transition.png);
+            background-repeat: repeat-x;
+            pointer-events: none;
+        }
+
+        &.fluid {
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 90vh;
+            background-color: #000;
+
+            @include bg-img;
+        }
+
+        &.default {
+            top: 0;
+            left: 0;
+            padding-top: 34%;
+            width: 60vw;
+            min-width: 1110px;
+            min-height: 820px;
+
+            @media screen and (max-width: 1440px) {
+                min-width: auto;
+                min-height: auto;
+                padding-top: 56.25%;
+                width: 80vw;
+            }
+
+            @include viewport(mobileMax) {
+                position: relative;
+                width: 100%;
+            }
+        }
+    }
+
+    .dynamic_section:not(:first-of-type) {
+        padding: 80px 0;
+    }
+
+    @include viewport(desktopMax) {
+        background-size: unset;
+    }
+
+    @include viewport(tabletmax) {
+        padding-left: 40px;
+        padding-right: 40px;
+
+        .bg {
+            &::after {
+                height: 150px;
+            }
+
+            &.fluid {
+                background-color: rgba(#000, 0.2);
+                background-blend-mode: overlay;
+            }
+        }
+    }
+
+    @include viewport(mobileMax) {
+        padding: 80px 0;
+        min-height: 75vh;
+
+        .dynamic_section:not(:first-of-type) {
+            padding: 40px 0;
+        }
+    }
+
+    .cards_wrapper {
+        margin-top: 65px;
+    }
+
+    .cta {
+        margin: 10px auto;
+        padding: 0 30px;
+    }
+
+    // Accordion styles
+    details {
+        position: relative;
+        padding-bottom: 40px;
+    }
+
+    summary {
+        list-style-type: none;
+        outline: 0;
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+
+        &::before {
+            content: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 2L5 6L9 2' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dlp-card-link, #29353a);
+            color: #fff;
+            padding: 2px;
+            margin-right: 10px;
+            width: 14px;
+            height: 14px;
+            font-size: 1.1rem;
+            vertical-align: text-top;
+            font-weight: 400;
+            transition: 0.2s ease-in-out;
+            transform: rotate(0);
+        }
+    }
+
+    details[open] {
+        summary {
+            span {
+                opacity: 0;
+            }
+
+            &::before {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    // Accordion styles end
+}

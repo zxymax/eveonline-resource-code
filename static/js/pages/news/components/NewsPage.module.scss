@@ -1,0 +1,78 @@
+@import '~shared/styles/config';
+
+.heroBg {
+    position: relative;
+
+    @include star-fade;
+}
+
+.header {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.grid {
+    display: grid;
+    padding: 20px 0;
+    grid-gap: 20px;
+}
+
+.grid2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid3 {
+    grid-template-columns: 1fr;
+}
+
+.grid2_1 {
+    grid-template-columns: 1fr;
+}
+
+.bottomCTA {
+    @include viewport(mobile) {
+        grid-column-start: 2;
+    }
+}
+
+/**********************************
+    @Media queries
+**********************************/
+
+// Mobile up
+@include viewport(mobile) {
+    .grid3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+// Tablet up
+@include viewport(tablet) {
+    .header {
+        grid-template-columns: 1fr 1fr 325px;
+        grid-gap: 30px;
+    }
+
+    .more {
+        margin-left: auto;
+    }
+
+    .grid2_1 {
+        grid-template-columns: repeat(3, 1fr);
+
+        .item {
+            grid-column: span 2;
+        }
+    }
+}
+
+// Desktop up
+@include viewport(desktop) {
+    .header {
+        grid-template-columns: 1fr 1fr 410px;
+    }
+
+    .grid {
+        grid-gap: 30px;
+    }
+}

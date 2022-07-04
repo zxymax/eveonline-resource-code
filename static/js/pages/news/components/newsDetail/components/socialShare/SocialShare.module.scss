@@ -1,0 +1,99 @@
+@import '~shared/styles/config';
+
+.socialShare {
+    margin: 0;
+    position: relative;
+    display: inline-flex;
+
+    .inner {
+        padding: 0 12px 0 0;
+        position: relative;
+
+        @include viewport(mobile) {
+            padding: 0 12px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                height: 20px;
+                width: 1px;
+                left: 0;
+                bottom: 4px;
+                background-color: var(--news-social-color);
+            }
+        }
+
+        // &:after {
+        //     right: 0;
+        //     left: unset;
+        // }
+
+        a {
+            padding: 5px 16px 5px 0;
+
+            &:last-of-type {
+                padding-right: 0;
+            }
+
+            svg {
+                color: var(--news-social-color);
+                font-size: 20px;
+                transition: all 0.3s;
+            }
+
+            &:hover {
+
+                svg {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .copyLink {
+        position: relative;
+        padding: 0 12px;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 1px;
+            left: 0;
+            bottom: 4px;
+            background-color: var(--news-social-color);
+        }
+
+        .copied {
+            display: inline-block;
+            font-size: 15px;
+            font-size: 13px;
+            opacity: 0;
+            position: absolute;
+            top: 2px;
+            width: 100px;
+            left: 40px;
+
+            &.active {
+                opacity: 1;
+                animation: tracking-out-expand 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                // opacity: 1;
+                // animation: fadInOut 2s linear;
+            }
+        }
+    }
+}
+
+@keyframes tracking-out-expand {
+    0% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0.8;
+    }
+    100% {
+      letter-spacing: 0.2em;
+      opacity: 0;
+    }
+}

@@ -1,0 +1,128 @@
+@import '~shared/styles/config';
+
+.sessionEnded {
+    padding: 100px 0;
+
+    @include viewport(mobile) {
+        padding: 250px 0 100px 0;
+    }
+    // padding: 6em 0;
+    // padding-top: 200px;
+    // min-height: 70vh;
+
+    .content {
+        // margin-bottom: 20px;
+        display: grid;
+
+        .sub {
+            margin-top: 5px;
+        }
+
+        .btnWrapper {
+            display: inline-table;
+            min-width: 400px;
+
+            .btnOmega {
+                // display: inline-flex;
+                // min-width: 400px;
+
+                a {
+                    width: 100%;
+                }
+
+                margin-top: 40px;
+                margin-bottom: 20px;
+
+                span {
+                    display: flex;
+                    align-items: center;
+
+                    svg {
+                        height: 22px;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+
+        .cards {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-column-gap: 50px;
+            text-align: left;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+            @include viewport(mobile) {
+                flex-direction: row;
+            }
+
+            .card {
+                .img {
+                    min-height: 90px;
+
+                    img {
+                        height: 85px;
+                    }
+                }
+
+                h4 {
+                    font-weight: $font-medium;
+                    font-size: 22px;
+                    text-transform: uppercase;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    margin-top: 0;
+                    font-size: 16px;
+                }
+            }
+
+            &.offer {
+                margin-top: 50px;
+                display: flex;
+                // grid-template-columns: repeat(4, 1fr);
+                // grid-column-gap: 50px;
+                text-align: left;
+                justify-content: center;
+
+
+                .card {
+                    margin-top: 10px;
+                    max-width: 300px;
+
+                    h4 {
+                        margin-top: 10px;
+                    }
+
+                    img {
+                        height: 180px;
+                    }
+
+                    .content {
+                        padding: 10px 20px 20px 20px;
+                        background-color: #29353a;
+                        min-height: 230px;
+
+                        a {
+                            width: 100%;
+                            align-self: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .banner {
+        display: flex;
+        margin-top: 50px;
+
+        a {
+            margin: 0 auto;
+        }
+    }
+}

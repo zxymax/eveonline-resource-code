@@ -1,0 +1,58 @@
+@import '~shared/styles/config';
+
+:global {
+    .slide-pane__overlay.overlay-after-open {
+        background-color: rgba(#000, 0.85);
+        transition: background-color 0.1s;
+    }
+
+    .slide-pane__content {
+        padding: 30px 0;
+    }
+}
+
+.pane {
+    width: 100%;
+    margin-top: 20vh;
+    color: $www-night-black;
+
+    h2 {
+        @include line-heading($brand-community);
+    }
+
+    h3 {
+        margin-top: 40px;
+        font-size: 22px;
+        color: $www-steel-gray;
+    }
+
+    a {
+        color: $brand-community;
+    }
+}
+
+.back {
+    @include reset-button;
+
+    cursor: pointer;
+    margin-bottom: 30px;
+
+    .arrow {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+
+    svg {
+        transition: $transition;
+    }
+
+    &:hover {
+        svg {
+            transform: translateX(-5px) rotate(180deg);
+        }
+    }
+
+    svg {
+        transform: rotate(180deg);
+    }
+}

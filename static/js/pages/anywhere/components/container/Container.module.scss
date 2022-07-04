@@ -1,0 +1,39 @@
+@import '~shared/styles/config';
+
+.container {
+    // outline: 1px solid blue;
+    position: relative;
+    padding: 60px 20px 20px 20px;
+    max-width: 95%;
+
+    @include viewport(mobile) {
+        padding: 60px;
+        max-width: 850px;
+    }
+
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(16, 16, 16, 0.9);
+
+    // .frame {
+    //     outline: 1px solid gray;
+    // }
+}
+
+.narrow {
+    @include viewport(mobile) {
+        padding: 60px;
+        padding-top: 30px;
+        max-width: 650px;
+    }
+}
+
+.wide {
+    max-width: 95%;
+
+    @include viewport(desktop) {
+        padding: 60px;
+        // padding-top: 30px;
+        max-width: 1290px;
+    }
+}

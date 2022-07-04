@@ -1,0 +1,164 @@
+// Colors
+$brand-primary: #2980b9;
+$brand-higlight: #00aeff;
+$brand-light: #2980b9;
+$brand-blue: #11263b;
+$brand-dark: #161d26;
+$brand-dark-lighter: #a9a9a9;
+$brand-yellow: #fc0;
+$brand-black: #101010;
+$brand-recruit-green: #1b7380;
+$brand-recruit-red: #953218;
+$brand-recruit-red: #953218;
+$brand-success: #3c9529;
+$brand-world-tour: #f67c0f; // All the same orange now, can use $www-thermal-orange instead
+$brand-fanfest: #30b2e6;
+$brand-fanfest-orange: #f67c0f;
+$brand-community: #f67c0f;
+
+// WWW
+// Main color palette
+$www-primary: #30b2e6; // EVE Blue
+$www-omega: #fab400; // Plex Yellow
+$www-academy: #ba1f7e;
+$www-academy-secondary: #111528;
+$www-space-gray: #29353a; // Space Gray
+$www-dark: #101010;
+$www-night-black: #212121; // Night Black
+$www-steel-gray: #777; // Steel Gray
+$www-silver-gray: #c0c0c0; // Silver Gray
+$www-smoke-gray: #f5f5f5; // Smoke Gray
+$www-bright-white: #fff; // Bright White
+$www-cyan: #5ccbcb; // Bright White
+$www-partners: #cd923b;
+
+// Accent color palette
+$www-thermal-orange: #f67c0f; // Thermal Orange
+$www-blood-red: #d81f27; // Blood Red
+$www-arisite-green: #3c9529; // Arisite Green
+$www-shield-cyan: #5ccbcb; // Shield Cyan
+$www-npsi-purple: #ba1f7e; // NPSI Purple
+
+$www-light: #8a8a8a;
+
+// Color theme
+$www-theme-primary: #212121;
+$www-theme-highlight: #30b2e6;
+$www-theme-text: $www-theme-highlight;
+$www-theme-icon: #c5c5cb;
+// $www-theme-h1: $www-night-black;
+// $www-theme-h2: $www-theme-highlight;
+$www-theme-h1: #fff;
+$www-theme-h2: #fff;
+$www-theme-heading-decorator: $www-theme-highlight;
+$www-theme-button-primary: $www-theme-highlight;
+$www-theme-button-text: $www-night-black;
+$www-theme-button-secondary: #fff;
+
+// Social colors
+$social-fb: #34579b;
+$social-t: #2faae1;
+$social-yt: #da4a38;
+$social-g: #e61d2a;
+$social-tw: #6441a5;
+$social-ig: #833ab4;
+$social-vk: #45668e;
+$social-reddit: #ff4500;
+
+// Font colors
+$color-font-gray: #979797;
+$color-font-dark: #202020;
+$color-font-light-theme: #404040;
+
+// Alert colors
+$alert-success: #538e4d;
+$alert-error: #da4c4b;
+$alert-warning: #fa9507;
+
+// Grayscale
+$gray-500: #979797;
+
+$default-alpha: 0.95;
+
+// grid
+$grid-column-count: 12;
+$grid-baseline: 16px;
+
+// Gutter
+$gutter: 30px;
+$container-gutter-mobile: 15px;
+$container-gutter-tablet: 50px;
+$container-gutter-desktop: 80px;
+
+// Page dimensions
+$page-width: 1290px;
+$limit: $page-width + ($container-gutter-desktop * 2);
+
+// Fonts
+$font-family: 'Shentox', 'Rogan', sans-serif;
+$font-family-ja: 'Noto Sans JP', 'Shentox', 'Rogan', sans-serif;
+// Weight
+$font-light: 300;
+$font-regular: normal;
+$font-medium: 500;
+$font-semibold: 600;
+// // japan styles
+// $font-light-ja: 300;
+// $font-regular-ja: normal;
+// $font-medium-ja: 500;
+// $font-semibold: 600;
+
+$transition: 0.2s ease-in-out;
+
+// Custom break point (Min)
+$min-1800: 1800px;
+$min-1440: 1440px;
+$min-1280: 1280px;
+$min-1200: 1200px;
+$min-1080: 1080px;
+$min-1024: 1024px;
+$min-960: 960px;
+$min-840: 840px;
+$min-768: 768px;
+$min-720: 720px;
+$min-640: 640px;
+$min-600: 600px;
+$min-560: 560px;
+$min-540: 540px;
+$min-480: 480px;
+$min-420: 420px;
+$min-375: 375px;
+$min-360: 360px;
+
+// Custom break points (Max)
+$max-1800: 1799px;
+$max-1440: 1439px;
+$max-1290: 1290px;
+$max-1280: 1279px;
+$max-1200: 1199px;
+$max-1080: 1079px;
+$max-1024: 1023px;
+$max-960: 959px;
+$max-840: 839px;
+$max-768: 767px;
+$max-720: 719px;
+$max-640: 639px;
+$max-600: 599px;
+$max-540: 539px;
+$max-480: 479px;
+$max-420: 419px;
+$max-375: 374px;
+$max-360: 359px;
+
+// Breakpoints
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$screen-xlg: 1800px;
+$screen-xs-max: ($screen-xs - 1);
+$screen-sm-max: ($screen-sm - 1);
+$screen-md-max: ($screen-md - 1);
+$screen-lg-max: ($screen-lg - 1);
+$screen-xlg-max: ($screen-xlg - 1);
+

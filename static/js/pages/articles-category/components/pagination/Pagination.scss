@@ -1,0 +1,77 @@
+@import '~shared/styles/config';
+
+.pagination {
+    // margin-top: 20px;
+    text-align: right;
+    float: right;
+
+    @include viewport (mobileMax) {
+        float: initial;
+        text-align: left;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        @include viewport (mobileMax) {
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+
+            &.paging_iterator {
+                @include viewport (mobileMax) {
+                    display: none;
+                }
+            }
+
+            &.prev {
+                padding-right: 15px;
+            }
+
+            &.next {
+                padding-left: 15px;
+            }
+
+            &.current_page {
+                display: none;
+                padding-right: 5px;
+                color: #00aeff;
+
+                @include viewport (mobileMax) {
+                    display: initial;
+                }
+            }
+
+            &.active {
+                a {
+                    color: #00aeff;
+                }
+            }
+        }
+    }
+
+    .disabled {
+        display: none;
+    }
+
+    .active {
+        color: gray;
+    }
+
+    a {
+        padding-right: 10px;
+
+        @include viewport (mobileMax) {
+            padding-left: 0;
+            padding-right: 5px;
+        }
+
+        @include viewport (tablet) {
+            padding-right: 0;
+            padding-left: 10px;
+        }
+    }
+}

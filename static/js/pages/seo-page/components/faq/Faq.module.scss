@@ -1,0 +1,29 @@
+@import '~shared/styles/config';
+
+.faq {
+    padding: 40px 0;
+
+    p {
+        margin: 0;
+    }
+
+    .items {
+        margin-top: 40px;
+
+        .question {
+            font-weight: 500;
+        }
+    }
+}
+
+@include viewport(mobile) {
+    .faq {
+        padding: 60px 0;
+    }
+}
+
+@include viewport(tablet) {
+    .faq {
+        padding: 0 0 120px;
+    }
+}

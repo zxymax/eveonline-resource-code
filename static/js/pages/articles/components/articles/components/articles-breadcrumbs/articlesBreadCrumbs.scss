@@ -1,0 +1,41 @@
+@import '~shared/styles/config';
+
+.row_wrapper {
+    margin-bottom: 20px;
+}
+
+.breadcrumbs {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: block;
+
+    li {
+        float: left;
+        list-style: none;
+        position: relative;
+        padding-right: 10px;
+        text-transform: capitalize;
+
+        &::after {
+            content: '/';
+            position: absolute;
+            right: 5px;
+        }
+
+        &:last-child {
+            &::after {
+                content: '';
+            }
+
+            color: #979797;
+        }
+
+        a {
+            float: left;
+            color: #fff;
+            margin-right: 10px;
+            position: relative;
+        }
+    }
+}

@@ -1,0 +1,66 @@
+@import '~shared/styles/config';
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+    max-width: 1290px;
+    margin: 0 auto;
+
+    .img,
+    .content {
+        grid-column: span 12;
+    }
+
+    .content {
+        position: relative;
+    }
+
+    .inner {
+        @include box('small', 1, 0, 0, 0);
+
+        padding: 30px;
+        background: var(--dlp-cta-card-bg);
+        color: var(--dlp-cta-card-color);
+    }
+
+    .heading {
+        color: var(--dlp-headline-color);
+    }
+
+    .btn {
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+        right: 30px;
+        transform: translateY(22px);
+        width: auto;
+
+        @include dlp-theme-btn;
+    }
+
+    /**********************************
+        @Media queries
+    **********************************/
+    @include viewport(mobile) {
+        .content {
+            grid-column: 2 / 12;
+            margin-top: -100px;
+        }
+
+        .inner {
+            padding: 40px;
+        }
+
+        .btn {
+            left: 40px;
+            right: auto;
+        }
+    }
+
+    @include viewport(desktop) {
+        .content {
+            grid-column: 3 / 11;
+        }
+    }
+}

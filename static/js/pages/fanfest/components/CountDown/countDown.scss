@@ -1,0 +1,51 @@
+@import '~shared/styles/config';
+
+.countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+
+    .countdown-title {
+        margin: 0;
+    }
+
+    .column {
+        p {
+            font-weight: $font-semibold;
+            text-transform: uppercase;
+            font-size: 15px;
+            margin-top: 10px;
+            color: #fff;
+            text-shadow: 0 0 4px rgb(0 0 0 / 75%);
+        }
+    }
+
+    .timer {
+        display: flex;
+        justify-content: center;
+
+        & > div {
+            text-align: center;
+            background: rgba(#162343, 0.85);
+            padding: 5px 8px;
+            margin: 7px;
+
+            & > span {
+                color: #fff;
+                font-size: 48px;
+            }
+
+            .unit {
+                padding-top: 0;
+                font-size: 14px;
+                color: $www-silver-gray;
+                text-transform: uppercase;
+            }
+
+            .time-unitsm {
+                display: none;
+            }
+        }
+    }
+}

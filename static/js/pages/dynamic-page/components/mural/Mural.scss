@@ -1,0 +1,13 @@
+@import '~shared/styles/config';
+
+.mural {
+    padding: 180px 40px 0;
+    position: relative;
+    max-width: 1920px;
+
+    @include viewport (desktopMax) {
+        height: auto !important;
+        padding: 0;
+        margin-top: 100px;
+    }
+}

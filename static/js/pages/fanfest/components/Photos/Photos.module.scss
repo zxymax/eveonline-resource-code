@@ -1,0 +1,37 @@
+@import '~shared/styles/config';
+
+.photos {
+    h2 {
+        &::before {
+            background: $brand-fanfest-orange;
+        }
+    }
+
+    .galleryContainer {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        // grid-column-gap: 30px;
+        // grid-gap: 30px;
+        font-size: 16px;
+        font-weight: $font-medium;
+        text-align: center;
+        position: relative;
+        margin: 40px 0;
+
+        @include viewport(tabletmin) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            margin: 80px 0;
+        }
+
+        > div {
+            transition: $transition;
+            cursor: pointer;
+
+            &:hover {
+                filter: brightness(1.2);
+            }
+        }
+    }
+}

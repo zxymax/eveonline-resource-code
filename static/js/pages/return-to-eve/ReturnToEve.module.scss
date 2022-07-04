@@ -1,0 +1,11 @@
+@import '~shared/styles/config';
+
+.returnToEve {
+    // background: $www-night-black;
+    padding-bottom: 60px;
+
+    @include viewport(tablet) {
+        padding-bottom: 120px;
+    }
+}
+

@@ -1,0 +1,446 @@
+@mixin cut-corner() {
+    clip-path: polygon(0% 0, 100% 0%, 100% 80%, 95% 100%, 0 100%);
+}
+
+@mixin cut-img-shape($size: large, $align: right) {
+    // Do not apply on mobile
+    @include viewport(tablet) {
+        $gap: 194px;
+        $offset: 10px;
+
+        @if $size == small {
+            $gap: 130px;
+        }
+
+        @if $align == center {
+            $percentage: 50%;
+
+            clip-path:
+                polygon(
+                    0 0,
+                    calc(#{$percentage} + 100px) 0,
+                    calc(#{$percentage} + calc(100px + #{$offset})) 10px,
+                    calc(#{$percentage} + calc(100px + #{$gap})) 10px,
+                    calc(#{$percentage} + calc(100px + #{$gap} + #{$offset})) 0,
+                    100% 0,
+                    100% 0,
+                    100% 100%,
+                    0 100%,
+                    0 100%,
+                    0 100%,
+                    0% 100%
+                );
+        }
+
+        @else if $align == right {
+            $percentage: 100%;
+
+            clip-path:
+                polygon(
+                    0 0,
+                    calc(#{$percentage} - calc(100px + #{$gap} + #{$offset})) 0,
+                    calc(#{$percentage} - calc(100px + #{$gap})) 10px,
+                    calc(#{$percentage} - calc(100px + #{$offset})) 10px,
+                    calc(#{$percentage} - 100px) 0,
+                    100% 0,
+                    100% 0,
+                    100% 100%,
+                    0 100%,
+                    0 100%,
+                    0 100%,
+                    0% 100%
+                );
+        }
+    }
+}
+
+@mixin hr-top($height: 4px, $width: 150px, $thickness: 1px) {
+    @include hr-creator(0, 1, $width, $height, 5px, 1);
+}
+
+@mixin hr-bottom($height: 4px, $width: 150px, $thickness: 1px) {
+    @include hr-creator(0, 1, $width, $height, 5px, 0);
+}
+
+@mixin hr-creator(
+    $start: 0,
+    $centered: 0,
+    $width: 0,
+    $height: 0,
+    $incline: 0,
+    $top: 0
+) {
+    $startHeight: 0;
+    $hrHeight: 1px;
+    $cutoutHeight: $height + $hrHeight;
+    $outerLeft: $start;
+
+    @if $centered == 1 {
+        $outerLeft: calc(50% - (#{$width} / 2));
+    }
+
+    @if $top != 1 {
+        $startHeight: $height + $hrHeight;
+        $hrHeight: $height;
+        $cutoutHeight: 0;
+    }
+
+    $innerLeft: calc(#{$outerLeft} + #{$incline});
+    $innerRight: calc(#{$innerLeft} + #{$width});
+    $outerRight: calc(#{$innerRight} + #{$incline});
+    $height: $height;
+
+    height: $height + $hrHeight;
+    width: 100%;
+    clip-path:
+        polygon(
+            0 $startHeight,
+            100% $startHeight,
+            100% $hrHeight,
+            $outerRight $hrHeight,
+            $innerRight $cutoutHeight,
+            $innerLeft $cutoutHeight,
+            $outerLeft $hrHeight,
+            0 $hrHeight,
+        );
+}
+
+$defaultClipSizes: ('start': 30px, 'width': 80px, 'height': 6px, 'incline': 4px, 'cornerWidth': 10px, 'cornerHeight': 10px);
+$xsClipSizes: ('start': 45px, 'width': 55px, 'height': 5px, 'incline': 4px, 'cornerWidth': 5px, 'cornerHeight': 5px);
+$smallClipSizes: ('start': 45px, 'width': 55px, 'height': 5px, 'incline': 4px, 'cornerWidth': 10px, 'cornerHeight': 10px);
+$mediumClipSizes: ('start': 108px, 'width': 75px, 'height': 5px, 'incline': 4px, 'cornerWidth': 10px, 'cornerHeight': 10px);
+$largeClipSizes: ('start': 108px, 'width': 75px, 'height': 8px, 'incline': 4px, 'cornerWidth': 10px, 'cornerHeight': 10px);
+
+@function corner-cut-points($inverse, $sizes) {
+    @if $inverse != 1 {
+        @return
+            100% calc(100% - #{map-get($sizes, 'cornerHeight')}),
+            calc(100% - #{map-get($sizes, 'cornerWidth')}) 100%;
+    }
+
+    @return
+        calc(100% - #{map-get($sizes, 'cornerWidth')} - 1px) calc(100% - 1px),
+        calc(100% - 1px) calc(100% - #{map-get($sizes, 'cornerHeight')} - 1px);
+}
+
+@function corner-points($inverse: 0, $cut: 0, $sizes: ()) {
+    @if $cut != 1 {
+        @if $inverse != 1 {
+            @return 100% 100%;
+        }
+
+        @return calc(100% - 1px) calc(100% - 1px);
+    }
+
+    @return corner-cut-points($inverse, $sizes);
+}
+
+@function top-cut-points(
+    $inverse, $sizes, $fill: 0, $offset: 0) {
+    $outerLeft: map-get($sizes, 'start') - $offset;
+    $innerLeft: $outerLeft + map-get($sizes, 'incline');
+    $innerRight: $innerLeft + map-get($sizes, 'width');
+    $outerRight: $innerRight + map-get($sizes, 'incline');
+    $height: map-get($sizes, 'height') - $offset;
+
+    @if $fill == 1 and $inverse != 1 {
+        @return
+            calc(#{$outerRight} + 1px) 0,
+            calc(#{$outerRight} + 1px) 1px,
+                calc(#{$outerLeft} - 1px) 1px,
+                calc(#{$outerLeft} - 1px) 0,
+                $outerLeft 0,
+                $innerLeft $height,
+                $innerRight $height,
+                $outerRight 0;
+    }
+
+    @if $inverse != 1 {
+        @return
+            $outerLeft 0,
+            $innerLeft $height,
+                $innerRight $height,
+                $outerRight 0;
+    }
+
+    @return
+        calc(#{$outerRight} + 1px) 1px,
+        calc(#{$innerRight} + 1px) calc(#{$height} + 1px),
+            calc(#{$innerLeft} - 1px) calc(#{$height} + 1px),
+            calc(#{$outerLeft} - 1px) 1px;
+}
+
+@function top-line-points(
+    $inverse: 0,
+    $cut: 0,
+    $fill: 0,
+    $offset: 0,
+    $sizes: ()) {
+    @if $cut != 1 and $fill != 1 {
+        @if $inverse != 1 {
+            @return 0 0;
+        }
+
+        @return 1px 1px;
+    }
+
+    @if $inverse != 1 {
+        @return
+            0 0,
+            top-cut-points($inverse, $sizes, $fill, $offset);
+    }
+
+    @return
+        top-cut-points($inverse, $sizes, $fill, $offset),
+        1px 1px;
+}
+
+@function bottom-cut-points(
+    $inverse, $sizes, $fill: 0, $offset: 0) {
+    $outerLeft: map-get($sizes, 'start') - $offset;
+    $innerLeft: $outerLeft + map-get($sizes, 'incline');
+    $innerRight: $innerLeft + map-get($sizes, 'width');
+    $outerRight: $innerRight + map-get($sizes, 'incline');
+    $height: map-get($sizes, 'height') - $offset;
+
+    @if $fill == 1 and $inverse != 1 {
+        @return
+            calc(#{$outerLeft} - 1px) 100%,
+            calc(#{$outerLeft} - 1px) calc(100% - 1px),
+                calc(#{$outerRight} + 1px) calc(100% - 1px),
+                calc(#{$outerRight} + 1px) 100%,
+                $outerRight 100%,
+                $innerRight calc(100% - #{$height}),
+                $innerLeft calc(100% - #{$height}),
+                $outerLeft 100%;
+    }
+
+    @if $inverse != 1 {
+        @return
+            $outerRight 100%,
+            $innerRight calc(100% - #{$height}),
+                $innerLeft calc(100% - #{$height}),
+                $outerLeft 100%;
+    }
+
+    @return
+        calc(#{$outerLeft} - 1px) calc(100% - 1px),
+        calc(#{$innerLeft} - 1px) calc(100% - #{$height} - 1px),
+            calc(#{$innerRight} + 1px) calc(100% - #{$height} - 1px),
+            calc(#{$outerRight} + 1px) calc(100% - 1px);
+}
+
+@function bottom-line-points(
+    $inverse: 0,
+    $cut: 0,
+    $fill: 0,
+    $offset: 0,
+    $sizes: ()) {
+    @if $cut != 1 and $fill != 1 {
+        @if $inverse != 1 {
+            @return 0 100%;
+        }
+
+        @return 1px calc(100% - 1px);
+    }
+
+    @if $inverse != 1 {
+        @return
+            bottom-cut-points($inverse, $sizes, $fill, $offset),
+            0 100%;
+    }
+
+    @return
+        1px calc(100% - 1px),
+        bottom-cut-points($inverse, $sizes, $fill, $offset);
+}
+
+@mixin box-border(
+    $size: 0,
+    $dentTop: 0,
+    $fillTop: 1,
+    $dentBottom: 1,
+    $fillBottom: 0,
+    $corner: 1,
+    $start: 0,
+    $width: 0,
+    $height: 0,
+    $incline: 0,
+    $cornerHeight: 0,
+    $cornerWidth: 0) {
+    $sizes: ();
+
+    @if $size == 'large' {
+        $sizes: $largeClipSizes;
+    }
+
+    @else if $size == 'medium' {
+        $sizes: $mediumClipSizes;
+    }
+
+    @else if $size == 'small' {
+        $sizes: $smallClipSizes;
+    }
+
+    @else {
+        $sizes: ('start': $start, 'width': $width, 'height': $height, 'incline': $incline, 'cornerWidth': $cornerWidth, 'cornerHeight': $cornerHeight);
+    }
+
+    @include box-border-creator(
+        $dentTop,
+        $fillTop,
+        $dentBottom,
+        $fillBottom,
+        $corner,
+        $sizes,
+    ); }
+
+@mixin box-border-creator(
+    $dentTop: 0,
+    $fillTop: 0,
+    $dentBottom: 1,
+    $fillBottom: 0,
+    $corner: 0,
+    $sizes: ()) {
+    clip-path:
+        polygon(
+            top-line-points(0, $dentTop, $fillTop, 0, $sizes),
+            100% 0,
+            corner-points(0, $corner, $sizes),
+            bottom-line-points(0, $dentBottom, $fillBottom, 0, $sizes),
+            0 0,
+            1px 1px,
+            bottom-line-points(1, $dentBottom, $fillBottom, 0, $sizes),
+            corner-points(1, $corner, $sizes),
+            calc(100% - 1px) 1px,
+            top-line-points(1, $dentTop, $fillTop, 0, $sizes),
+        );
+}
+
+@mixin box-fill(
+    $size: 0,
+    $fillTop: 1,
+    $fillBottom: 1,
+    $offset: 0,
+    $start: 0,
+    $width: 0,
+    $height: 0,
+    $incline: 0) {
+    $sizes: ();
+
+    @if $size == 'large' {
+        $sizes: $largeClipSizes;
+    }
+
+    @else if $size == 'medium' {
+        $sizes: $mediumClipSizes;
+    }
+
+    @else if $size == 'small' {
+        $sizes: $smallClipSizes;
+    }
+
+    @else {
+        $sizes: ('start': $start, 'width': $width, 'height': $height, 'incline': $incline);
+    }
+
+    @include box-fill-creator(
+        $fillTop,
+        $fillBottom,
+        $offset,
+        $sizes,
+    ); }
+
+@mixin box-fill-creator(
+    $top: 0,
+    $bottom: 0,
+    $offset: 0,
+    $sizes: ()) {
+    @if $top == 1 and $bottom == 1 {
+        clip-path:
+            polygon(
+                top-line-points(0, $top, 0, $offset, $sizes),
+                0 0,
+                0 100%,
+                bottom-line-points(0, $bottom, 0, $offset, $sizes)
+            );
+    }
+
+    @else if $top == 1 {
+        clip-path:
+            polygon(
+                top-line-points(0, $top, 0, $offset, $sizes),
+            );
+    }
+
+    @else if $bottom == 1 {
+        clip-path:
+            polygon(
+                0 0,
+                0 100%,
+                bottom-line-points(0, $bottom, 0, $offset, $sizes)
+            );
+    }
+}
+
+@mixin box(
+    $size: 0,
+    $cutTop: 0,
+    $cutBottom: 1,
+    $cutCorner: 1,
+    $offset: 0,
+    $start: 0,
+    $width: 0,
+    $height: 0,
+    $incline: 0,
+    $cornerHeight: 0,
+    $cornerWidth: 0) {
+    $sizes: ();
+
+    @if $size == 'default' {
+        $sizes: $defaultClipSizes;
+    }
+
+    @else if $size == 'large' {
+        $sizes: $largeClipSizes;
+    }
+
+    @else if $size == 'medium' {
+        $sizes: $mediumClipSizes;
+    }
+
+    @else if $size == 'small' {
+        $sizes: $smallClipSizes;
+    }
+
+    @else if $size == 'xs' {
+        $sizes: $xsClipSizes;
+    }
+
+    @else {
+        $sizes: ('start': $start, 'width': $width, 'height': $height, 'incline': $incline, 'cornerWidth': $cornerWidth, 'cornerHeight': $cornerHeight);
+    }
+
+    @include box-creator(
+        $cutTop,
+        $cutBottom,
+        $cutCorner,
+        $offset,
+        $sizes,
+    ); }
+
+@mixin box-creator(
+    $cutTop: 0,
+    $cutBottom: 0,
+    $cutCorner: 1,
+    $offset: 0,
+    $sizes: ()) {
+    clip-path:
+        polygon(
+            top-line-points(0, $cutTop, 0, $offset, $sizes),
+            100% 0,
+            corner-points(0, $cutCorner, $sizes),
+            bottom-line-points(0, $cutBottom, 0, $offset, $sizes),
+        );
+}
+

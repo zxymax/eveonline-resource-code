@@ -1,0 +1,140 @@
+@import '~shared/styles/config';
+
+/* stylelint-disable selector-pseudo-class-no-unknown */
+
+/******************************
+    Slider styles
+****************************/
+.sliderWrapper {
+    @import '~shared/styles/carousel-reset';
+}
+
+.slider {
+    position: relative;
+    padding-left: 5px;
+    touch-action: pan-y;
+    margin-top: 40px;
+    // Global slider styles
+    :global {
+        .slick-arrow {
+            background: #fff;
+            opacity: 1;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            cursor: pointer;
+
+            svg {
+                @include centerer;
+
+                font-size: 1.15em;
+            }
+
+            svg path {
+                fill: $www-theme-highlight;
+            }
+        }
+
+        .slick-arrow.slick-disabled {
+            opacity: 0;
+        }
+
+        .slick-prev {
+            left: 0;
+            background: linear-gradient(-45deg, transparent 8px, currentColor 8px);
+        }
+
+        .slick-next {
+            right: 0;
+            background: linear-gradient(45deg, transparent 8px, currentColor 8px);
+        }
+
+        .slick-track {
+            display: flex;
+        }
+
+        .slick-slide {
+            position: relative;
+            margin: 0 5px;
+            transition: 0.2s ease-in-out;
+
+            a {
+                -webkit-user-drag: none;
+            }
+
+            @include viewport(desktop) {
+                overflow: hidden;
+
+                a {
+                    overflow: hidden;
+                }
+
+                figure {
+                    transform: translateZ(0);
+                    transition: transform 0.6s cubic-bezier(0.35, 0, 0, 1);
+                }
+
+                &:hover {
+                    figure {
+                        transition: transform 0.8s cubic-bezier(0.35, 0, 0, 1);
+                        transform: scale3d(1.05, 1.05, 1);
+                    }
+
+                    &::after {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    @include viewport(tablet) {
+        padding-left: 0;
+        margin-top: 100px;
+
+        :global {
+            .slick-arrow {
+                width: 60px;
+                height: 60px;
+
+                &:hover {
+                    &.slick-prev svg {
+                        transform: translate(-65%, -50%);
+                    }
+
+                    &.slick-next svg {
+                        transform: translate(-35%, -50%);
+                    }
+                }
+
+                svg {
+                    font-size: 1.75em;
+                    transition: transform 0.35s;
+                }
+            }
+
+            .slick-slide {
+                margin: 0 10px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        max-width: 1920px;
+        margin: 100px auto 0;
+
+        :global {
+            .slick-slider {
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+/******************************
+    Slider styles ends
+****************************/
+

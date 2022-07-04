@@ -1,0 +1,123 @@
+@import '~shared/styles/config';
+
+.error {
+    padding: 10em 0;
+    background: url('//web.ccpgamescdn.com/aws/eveonline/images/backgrounds/404.jpg') no-repeat center -20px;
+
+    &.e500 {
+        background: url('//web.ccpgamescdn.com/aws/eveonline/images/backgrounds/500.jpg') no-repeat center -20px;
+        background-size: cover;
+    }
+
+    background-size: cover;
+    padding-top: 180px;
+
+    @include viewport(tablet) {
+        padding-top: 300px;
+    }
+
+    color: #fff;
+
+    h1 {
+        font-size: 6em;
+        margin-bottom: 0;
+        margin-top: 0;
+        @include font-medium();
+    }
+
+    h2 {
+        font-size: 7vw;
+
+        @include viewport(desktop) {
+            font-size: 60px;
+        }
+
+        color: #fff;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        @include font-semibold();
+    }
+
+    h3 {
+        font-size: 36px;
+        color: #fff;
+        margin: 0;
+        text-transform: uppercase;
+        @include font-light();
+    }
+
+    p {
+        margin: 5px 0 10px;
+        font-size: 18px;
+
+        @include viewport(tablet) {
+            font-size: 20px;
+        }
+    }
+
+    a {
+        color: #00aeff;
+
+        &:hover {
+            color: #4dc6ff;
+        }
+    }
+
+    img {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .also {
+        margin: 20px 0 10px;
+    }
+
+    ul {
+        padding: 0;
+        margin-top: 20px;
+
+        li {
+            list-style: none;
+            margin-top: 5px;
+            color: #cfcfcf;
+            position: relative;
+            padding-left: 8px;
+            font-size: 18px;
+
+            svg {
+                font-size: 7px;
+                color: #a45834;
+                position: absolute;
+                top: 8px;
+                left: 0;
+            }
+
+            @include font-regular();
+
+            a {
+                color: #fff;
+                margin-left: 5px;
+
+                :hover {
+                    color: #00aeff;
+                }
+            }
+        }
+    }
+}
+
+.arrow {
+    font-size: 8px;
+}
+
+@include viewport(mobile) {
+    .error {
+        h2 {
+            font-size: 60px;
+        }
+
+        p {
+            font-size: 24px;
+        }
+    }
+}

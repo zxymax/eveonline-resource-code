@@ -1,0 +1,338 @@
+@import '~shared/styles/config';
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: #fb5d5d;
+    text-transform: none;
+}
+
+input,
+input:focus {
+    background: transparent;
+    // border: none;
+    box-shadow: none;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+
+    @include viewport(mobileMax) {
+        text-align: left;
+        padding-top: 10px;
+        display: inline-block;
+    }
+}
+
+.loader {
+    text-align: center;
+    margin: 100px 0;
+}
+
+.simpleContainer {
+    padding: 60px 90px 30px;
+    background-color: #fff;
+}
+
+.alreadyHasAccount {
+    margin: 0 auto;
+    text-align: center;
+
+    p {
+        @include font-medium();
+        text-transform: uppercase;
+        color: #fff;
+    }
+}
+
+.success {
+    color: white;
+    text-align: center;
+    margin-top: 150px;
+
+    h4 {
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        @include font-medium();
+    }
+
+    // &.simple {
+    //     margin-top: 50px;
+    //     padding: 40px 70px;
+    //     background-color: #fff;
+    // }
+
+    p {
+        margin: 30px 0;
+    }
+
+    .dark {
+        color: white;
+    }
+
+    .email {
+        background-color: #f1f1f1;
+        font-size: 18px;
+        padding: 15px 40px 15px 55px;
+        margin: 36px 0;
+        display: inline-block;
+        border: 2px solid $brand-success;
+        letter-spacing: 0.5px;
+        position: relative;
+
+        .successIndicator {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            font-size: 28px;
+            color: $brand-success;
+        }
+    }
+}
+
+.error {
+    width: 956px;
+    background-color: #f1f1f1;
+    padding: 30px 0;
+    margin: 30px auto;
+    text-align: center;
+
+    @include viewport(mobileMax) {
+        width: 100%;
+    }
+}
+
+.signupForm {
+    .popup {
+        position: fixed;
+        left: 0;
+        top: 0;
+        font-size: 16px;
+        width: 0;
+        height: 0;
+        z-index: 1000;
+        color: #404040;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.6);
+        transition: opacity 0.2s ease-out;
+        // display: none;
+        opacity: 0;
+        overflow-y: scroll;
+
+        &.active {
+            width: 100vw;
+            height: 100vh;
+            opacity: 1;
+
+            .inner {
+                opacity: 1;
+                transform: translateY(0) perspective(500px) rotateX(0);
+                // transition: all 0.2s ease-out;
+            }
+        }
+
+        .inner {
+            position: relative;
+            width: 768px;
+            text-align: left;
+            padding: 50px;
+            max-height: 70vh;
+            margin: 50px auto;
+            display: inline-block;
+            background-color: #fff;
+            overflow-y: scroll;
+            transition: all 0.3s ease-out;
+            transform: translateY(-10px) perspective(600px) rotateX(5deg);
+
+            @include viewport(mobileMax) {
+                width: 100%;
+                height: 100vh;
+            }
+
+            p {
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #404040;
+            @include font-medium();
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+    }
+
+    form {
+        width: 860px;
+        margin: 150px auto;
+
+        // &.simple {
+        //     width: auto;
+        //     margin: 40px auto 0;
+        // }
+
+        @include viewport(mobileMax) {
+            width: 100%;
+        }
+    }
+
+    .checkboxLabel {
+        height: 14px;
+        margin-top: 40px;
+
+        label {
+            height: 14px;
+        }
+    }
+
+    .highlight {
+        color: #2980b9;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    fieldset {
+        color: #404040;
+        text-transform: uppercase;
+        font-size: 14px;
+        width: 50%;
+        float: left;
+        height: 105px;
+        position: relative;
+
+        // &.simple {
+        //     width: auto;
+        //     float: none;
+
+        //     input {
+        //         width: 100%;
+        //     }
+
+        //     .validationIcons {
+        //         right: 10px;
+        //     }
+        // }
+
+        .validationIcons {
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+            font-size: 18px;
+
+            .warning {
+                transition: all 0.15s ease-in-out;
+                color: #fb5d5d;
+            }
+
+            &.highlight {
+                .warning {
+                    transform: scale(1.15);
+                }
+            }
+
+            .success {
+                color: #02a52d;
+            }
+        }
+
+        button {
+            background: $brand-primary;
+            color: #fff;
+            letter-spacing: 0.08em;
+            padding: 15px 30px;
+            margin-top: 40px;
+            font-size: 18px;
+            width: 70%;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.2s ease-in-out;
+
+            @include viewport(mobileMax) {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            &:hover {
+                background-color: #1c618f;
+            }
+
+            @include font-medium();
+
+            &[disabled] {
+                background: #619dc4;
+                cursor: default;
+            }
+        }
+
+        &.full {
+            // margin-top: 30px;
+            width: 100%;
+            text-align: center;
+
+            // &.simple {
+            //     margin-top: 0;
+
+            //     button {
+            //         width: 100%;
+            //     }
+
+            //     input[type='checkbox'] {
+            //         height: unset;
+            //         width: unset;
+            //         float: left;
+            //     }
+            // }
+
+            label {
+                display: inline-block;
+            }
+        }
+
+        @include viewport(mobileMax) {
+            width: 100%;
+        }
+    }
+
+    label {
+        display: block;
+        @include font-semibold();
+    }
+
+    input {
+        height: 60px;
+        width: 410px;
+        border: none;
+        padding-top: 30px;
+        font-size: 14px;
+        border-bottom: solid 1px;
+        outline: none;
+        padding-right: 40px;
+
+        @include viewport(mobileMax) {
+            width: 100%;
+        }
+    }
+
+    input[type='checkbox'] {
+        height: unset;
+        width: unset;
+        float: left;
+    }
+}
+

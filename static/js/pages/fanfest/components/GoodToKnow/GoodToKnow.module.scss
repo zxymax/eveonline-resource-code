@@ -1,0 +1,36 @@
+@import '~shared/styles/config';
+
+.customOverlay {
+    z-index: 300;
+}
+
+.goodToKnow {
+    margin: 40px 0 40px 0;
+
+    @include viewport(tabletmin) {
+        margin: 150px 0 140px 0;
+    }
+
+    .content {
+        margin: 20px 0 20px;
+        cursor: pointer;
+
+        @include arrow-hover;
+
+        @include viewport(tabletmin) {
+            margin: 100px 0 60px;
+        }
+    }
+
+    .subHeading {
+        padding: 10px 20px;
+
+        @include viewport(tablet) {
+            padding: 30px 200px 0;
+        }
+    }
+
+    .readMore {
+        margin-top: 20px;
+    }
+}

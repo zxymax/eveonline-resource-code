@@ -1,0 +1,77 @@
+@import '~shared/styles/config';
+
+.linksWrapper {
+    position: relative;
+    text-align: center;
+
+    .links {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate3d(-50%, -100%, 0);
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: $www-space-gray;
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity $transition, transform $transition;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-top: 10px solid $www-space-gray;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate3d(-50%, calc(-100% - 20px), 0);
+        }
+
+        .link {
+            transition: transform 0.4s;
+
+            @include box('xs', 0, 0, 1, 0);
+
+            &:hover {
+                transform: translate3d(0, -3px, 0);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .label {
+        display: block;
+        font-size: 16px;
+        color: $www-steel-gray;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    @include viewport(tablet) {
+        .links {
+            flex-direction: row;
+            gap: 20px;
+            max-width: 520px;
+        }
+    }
+}

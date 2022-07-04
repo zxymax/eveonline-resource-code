@@ -1,0 +1,48 @@
+@import '~shared/styles/config';
+
+.item {
+    color: var(--dlp-card-color, #fff);
+
+    @include box('default', 1, 1, 0, 0);
+
+    h2,
+    h3 {
+        text-transform: uppercase;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 26px;
+        font-weight: $font-medium;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin-top: 8px;
+    }
+
+    .content {
+        height: 100%;
+        padding: 15px;
+        background: var(--dlpBG);
+    }
+
+    .img {
+        width: 100%;
+    }
+
+    .video {
+        display: flex;
+    }
+
+    video {
+        width: 100%;
+    }
+}
+
+@include viewport(tablet) {
+    .item .content {
+        padding: 30px;
+    }
+}
+

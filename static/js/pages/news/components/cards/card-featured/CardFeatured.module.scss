@@ -1,0 +1,75 @@
+@import '~shared/styles/config';
+
+$padding-bottom: 30px;
+
+.card {
+    position: relative;
+    overflow: hidden;
+
+    &__content {
+        padding: 10px 0;
+    }
+
+    &__title {
+        margin: 10px 0 0;
+    }
+
+    &__desc {
+        display: none; // Hiding on mobile
+        margin: 20px 0 0;
+        line-height: 1.2;
+        height: 50px;
+    }
+}
+
+/**********************************
+    @Media queries
+**********************************/
+@include viewport(mobile) {
+    .card {
+        &__content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0 20px $padding-bottom;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background-image: linear-gradient(0deg, rgba(#000, 0.9), transparent);
+            background: linear-gradient(0deg, black 15%, rgba(0, 0, 0, 0) 100%);
+            pointer-events: none;
+        }
+    }
+}
+
+@include viewport(tablet) {
+    .card {
+        &__content {
+            transform: translateY(calc(50px + #{$padding-bottom}));
+            transition: transform 0.3s;
+        }
+
+        &__desc {
+            display: block;
+        }
+
+        &:hover & {
+            &__content {
+                transform: translateY(0);
+            }
+        }
+
+        // &:hover {
+        //     &::after {
+        //         opacity: 0.025;
+        //     }
+        // }
+    }
+}
+

@@ -1,0 +1,76 @@
+@import '~shared/styles/config';
+
+.template {
+    padding: 110px 0 20px;
+
+    .content {
+        display: grid;
+        grid-gap: 30px;
+
+        .text {
+            h2 {
+                color: $www-primary;
+                margin: 15px 0;
+            }
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .image {
+            display: none;
+        }
+    }
+}
+
+/**********************************
+    Media queries
+**********************************/
+@include viewport(tablet) {
+    .bg {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            width: 100%;
+            height: 197px;
+            background-image: url(//web.ccpgamescdn.com/aws/eveonline/images/transparency-transition.png);
+            background-repeat: repeat-x;
+            pointer-events: none;
+        }
+    }
+
+    .template {
+        padding: 130px 0 40px;
+
+        .content {
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            grid-gap: 0;
+
+            .image {
+                display: inline-block;
+                grid-column: 2;
+                margin-right: calc(-100vw / 2 + 1290px / 2);
+            }
+
+            &.reverse {
+                .text {
+                    grid-column: 2;
+                }
+
+                .image {
+                    display: inline-block;
+                    grid-row: 1;
+                    grid-column: 1;
+                    margin-right: unset;
+                    margin-left: calc(-100vw / 2 + 1290px / 2);
+                }
+            }
+        }
+    }
+}
+

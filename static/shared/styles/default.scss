@@ -1,0 +1,147 @@
+@import './config';
+
+:root {
+    --font-family: 'Shentox', 'Rogan', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: normal;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+}
+
+// Global styles
+html,
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    line-height: 1.5;
+    // background-color: #101010;
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: $font-medium;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: $font-medium;
+    }
+
+    h1,
+    h2 {
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+        // letter-spacing: 0.05em;
+    }
+
+    h2 {
+        font-size: 36px;
+
+        strong {
+            font-weight: $font-semibold;
+        }
+    }
+
+    a {
+        @include reset-anchor;
+    }
+
+    // h3 {
+    //     letter-spacing: 0.05em;
+    // }
+
+    p {
+        font-size: 22px;
+        letter-spacing: -0.01em;
+        //@include font-regular();
+        font-weight: $font-regular;
+
+        a {
+            color: $www-primary;
+            font-weight: $font-medium;
+
+            &:hover {
+                filter: brightness(1.2);
+            }
+        }
+    }
+}
+
+body {
+    position: relative;
+}
+
+// Forms
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+fieldset,
+form,
+label,
+legend {
+    @include reset-all;
+}
+
+// TODO: maybe reset default table styles
+table {
+    th {
+        font-weight: normal;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+@keyframes showMe {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@include viewport(mobileMax) {
+    html,
+    body {
+        h2 {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+@include viewport(xsMax) {
+    html,
+    body {
+        h2 {
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+

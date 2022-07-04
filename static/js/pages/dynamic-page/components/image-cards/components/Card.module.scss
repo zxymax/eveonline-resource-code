@@ -1,0 +1,125 @@
+@import '~shared/styles/config';
+
+.card {
+    width: 100%;
+    margin-bottom: 180px;
+
+    @include viewport(desktopMax) {
+        margin-bottom: 80px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .inner {
+        position: relative;
+
+        @include viewport(desktop) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include viewport(mobileMax) {
+            margin-top: 30px;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+
+        .img,
+        video {
+            width: 850px;
+
+            @include box('small', 1, 0, 0, 0);
+
+            @include viewport(desktop) {
+                grid-column: 1/4;
+            }
+
+            @include viewport(desktopMax) {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .text {
+            color: var(--dlp-card-color, #fff);
+            text-align: left;
+            padding: 20px 30px;
+            z-index: 2;
+            transition: all 0.5s ease-in-out;
+            opacity: 0;
+            transform: translate3d(0, 80px, 0);
+            overflow: hidden;
+
+            @include box('default', 0, 1, 0, 0);
+
+            @include viewport(mobile) {
+                background-color: #202020;
+                padding: 40px;
+            }
+
+            &.active {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+
+            @include viewport(desktop) {
+                grid-column: 2;
+                margin-top: -200px;
+            }
+
+            @include viewport(desktopMax) {
+                width: 100%;
+                margin-top: 0;
+                position: relative;
+            }
+
+            @include viewport(mobileMax) {
+                margin-top: 0;
+            }
+
+            h2,
+            h3 {
+                letter-spacing: 0.025em;
+            }
+
+            h2 {
+                font-size: 26px;
+                font-weight: $font-medium;
+
+                @include viewport(mobileMax) {
+                    text-align: left;
+                }
+            }
+
+            h3 {
+                font-size: 16px;
+                font-weight: $font-medium;
+                text-transform: uppercase;
+                margin-top: 8px;
+            }
+        }
+    }
+
+    &.right {
+        .img,
+        video {
+            margin-left: auto;
+        }
+
+        .inner {
+            .text {
+                @include viewport(desktopMax) {
+                    margin-top: 0;
+                }
+
+                @include viewport(desktop) {
+                    grid-column: 1;
+                }
+            }
+        }
+    }
+}

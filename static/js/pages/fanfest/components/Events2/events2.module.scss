@@ -1,0 +1,113 @@
+@import '~shared/styles/config';
+
+.bgImg {
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+}
+
+.paneContent {
+    display: grid;
+
+    .img {
+        margin: 20px 0;
+    }
+
+    @include viewport(mobile) {
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 30px;
+    }
+}
+
+.events2 {
+    position: relative;
+    margin: 40px 0 10px 0;
+
+    .bgImg {
+        background-position: center center;
+        background-size: cover;
+        height: 200px;
+        width: 100%;
+    }
+
+    .EventsWrapper {
+        padding: 50px 0 20px;
+        display: grid;
+        column-gap: 30px;
+        grid-row-gap: 60px;
+        grid-template-columns: repeat(1fr);
+
+        @include viewport(mobile) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include viewport(desktop) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .item {
+            font-size: 18px;
+
+            @include arrow-hover;
+
+            a {
+                text-transform: uppercase;
+                font-size: 15px;
+            }
+
+            .content {
+                position: relative;
+                display: flex;
+                flex-direction: column-reverse;
+                background-size: cover;
+                background-position: center center;
+                height: 220px;
+                padding: 20px;
+                transition: filter $transition;
+                clip-path: polygon(
+                    0 0,
+                    calc(100% - 108px) 0,
+                    calc(100% - 104px) 5px,
+                    calc(100% - 49px) 5px,
+                    calc(100% - 45px) 0,
+                    100% 0,
+                    100% 100%,
+                    0 100%
+                );
+
+                @include gradient;
+
+                &::after {
+                    z-index: -1;
+                }
+
+                h4 {
+                    font-size: 22px;
+                    letter-spacing: 0.02em;
+                    margin: 0;
+                    max-width: 80%;
+
+                    @include line-heading($brand-community);
+                }
+
+                img {
+                    border: 1px solid #29353a;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                .content {
+                    filter: brightness(1.2);
+                }
+            }
+        }
+    }
+
+    @include viewport(tabletmin) {
+        margin-top: 100px;
+        margin-bottom: 110px;
+    }
+}

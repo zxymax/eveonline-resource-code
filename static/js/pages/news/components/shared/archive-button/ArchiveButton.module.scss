@@ -1,0 +1,39 @@
+@import '~shared/styles/config';
+
+.link {
+    align-self: center;
+
+    a {
+        background: rgba($www-night-black, 0.8);
+        padding: 6px 8px;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        clip-path: polygon(
+            0% 0,
+            0 0%,
+            100% 0%,
+            100% 0,
+            100% calc(100% - 6px),
+            calc(100% - 6px) 100%,
+            0 100%,
+            0% calc(100% - 6px)
+        );
+
+        svg {
+            transition: filter 0.2s ease;
+            margin-left: 8px;
+
+            path {
+                fill: $www-theme-highlight;
+            }
+        }
+
+        &:hover {
+            svg {
+                filter: brightness(1.2);
+            }
+        }
+    }
+}
+

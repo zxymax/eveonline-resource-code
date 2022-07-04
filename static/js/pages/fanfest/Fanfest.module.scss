@@ -1,0 +1,22 @@
+@import '~shared/styles/config';
+
+.fanfest {
+    background: url('//web.ccpgamescdn.com/aws/eveonline/images/omega/stars-bg.jpg') repeat top center;
+    color: #fff;
+    position: relative;
+}
+
+.hatariVideoContainer {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    h2 {
+        @include viewport(tabletmin) {
+            margin-bottom: 80px;
+        }
+
+        &::before {
+            background: #f67c0f;
+        }
+    }
+}

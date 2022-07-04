@@ -1,0 +1,41 @@
+@import '~shared/styles/config';
+
+.content {
+    color: inherit;
+    padding: 10vw 0 20px; // 200px for 1920width
+
+    .btnContainer {
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+
+        .btn a {
+            min-width: 160px;
+            background: $brand-world-tour;
+            color: #fff;
+            letter-spacing: 0;
+            height: 50px;
+            margin-right: 10px;
+            padding: 0 30px;
+            @include font-semibold();
+
+            &:hover span {
+                color: #202020;
+            }
+        }
+    }
+
+    .btnBelow {
+        margin-top: 10px;
+    }
+
+    .disclaimer {
+        margin: 4vw;
+        color: rgba(255, 255, 255, 0.8);
+
+        p {
+            font-size: 20px;
+        }
+    }
+}
+

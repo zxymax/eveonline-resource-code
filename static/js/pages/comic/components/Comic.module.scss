@@ -1,0 +1,12 @@
+@import '~shared/styles/config';
+
+.comic {
+    background-color: $www-night-black;
+    transition: background-color 0.25s ease;
+    padding-bottom: 60px;
+
+    &.bg {
+        background-color: $www-dark;
+    }
+}
+

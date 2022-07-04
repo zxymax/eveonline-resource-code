@@ -1,0 +1,73 @@
+@import '~shared/styles/config';
+
+.news {
+    position: relative;
+    margin: 40px 0 10px 0;
+
+    .newsWrapper {
+        padding: 50px 0 20px;
+        display: grid;
+        column-gap: 30px;
+        grid-row-gap: 20px;
+        grid-template-columns: repeat(1fr);
+
+        @include viewport(mobile) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include viewport(desktop) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column-reverse;
+            padding: 20px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: 320px;
+            position: relative;
+            clip-path: polygon(
+                0 0,
+                calc(100% - 108px) 0,
+                calc(100% - 104px) 5px,
+                calc(100% - 49px) 5px,
+                calc(100% - 45px) 0,
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+
+            &:not(.logo) {
+                @include gradient;
+
+                &::after {
+                    z-index: -1;
+                }
+            }
+
+            &.logo {
+                background-size: contain;
+            }
+
+            h4 {
+                font-size: 22px;
+                text-transform: uppercase;
+                letter-spacing: 0.02em;
+                margin: 0;
+
+                @include line-heading($brand-community);
+            }
+
+            img {
+                border: 1px solid #29353a;
+            }
+        }
+    }
+
+    @include viewport(tabletmin) {
+        margin-top: 100px;
+        margin-bottom: 110px;
+    }
+}

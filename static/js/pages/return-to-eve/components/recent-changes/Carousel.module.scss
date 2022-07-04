@@ -1,0 +1,148 @@
+@import '~shared/styles/config';
+
+.carousel {
+    margin-bottom: 60px;
+    padding-top: 20px;
+}
+
+.intro {
+    margin-bottom: 8px;
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include viewport(mobile) {
+        grid-template-columns: 1fr;
+    }
+
+    @include viewport(tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include viewport(desktop) {
+        grid-template-columns: 4fr 3fr;
+    }
+
+    @include viewport(xlargeDesktopUp) {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.content {
+    width: 100%;
+    margin-top: 40px;
+    // position: relative;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+
+    // global for all sliders
+    :global {
+        .slick-track {
+            display: flex;
+            flex-grow: 1;
+        }
+    }
+
+    // slider 2 - text
+    .slider2 {
+        margin-top: 0;
+
+        @include viewport(mobile) {
+            // margin-top: -60px;
+        }
+
+        :global {
+            .slick-slide.slick-active {
+                z-index: 1;
+            }
+        }
+    }
+
+    .text {
+        padding: 15px 15px;
+        position: relative;
+        // max-width: 100%;
+
+        h3 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .arrows {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        ul {
+            list-style: square;
+            margin: 20px 0;
+            padding: 0 0 0 20px;
+
+            li {
+                margin-top: 3px;
+                font-weight: $font-regular;
+                font-size: 18px;
+                color: #c0c0c0;
+
+                strong {
+                    font-weight: $font-semibold;
+                    color: #fff;
+                }
+
+                a {
+                    color: $www-primary;
+                    font-weight: 500;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        // border-bottom: 1px solid $www-theme-highlight;
+                        filter: brightness(1.2);
+                    }
+                }
+            }
+
+            li::marker {
+                color: $www-theme-highlight;
+            }
+        }
+
+        .type {
+            text-transform: uppercase;
+            color: $www-theme-highlight;
+            font-weight: $font-medium;
+            font-size: 1.125rem;
+            letter-spacing: 0.02em;
+        }
+    }
+
+    @include viewport(tablet) {
+        padding: 0;
+
+        .slider1 {
+            :global .slick-slide {
+                margin-right: 30px;
+            }
+        }
+
+        .text {
+            position: relative;
+            max-width: 480px;
+            background-color: #212121;
+            padding: 20px 25px;
+            margin-left: 30px;
+
+            p {
+                font-size: 26px;
+                margin: 0;
+            }
+        }
+
+        // .arrows {
+        //     margin-right: 30px;
+        // }
+    }
+}
+

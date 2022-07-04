@@ -1,0 +1,18 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #101010;
+    overflow-y: hidden;
+}
+
+/* stylelint-disable-next-line */
+:global {
+    html.no-scroll body {
+        height: 100vh;
+    }
+}
+
